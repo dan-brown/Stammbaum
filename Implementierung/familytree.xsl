@@ -3,48 +3,50 @@
 <xsl:stylesheet version="1.0"
      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
       xmlns:html="html">
- <xsl:output method="xml" encoding ="UTF-8"
+ <!-- <xsl:output method="xml" encoding ="UTF-8"
      doctype-public="Public-ID der Ausgabedateigrammatik"
      doctype-system="System-ID der Ausgabedateigrammatik"/> 
- 
+ -->
  <!--Templates, welche die genauen Transformationen beschreiben -->
 
   <xsl:template match="/">
+     
    
-   
-   
-    <html:html>
+    <html>
     
     
-      <html:head>
-        <html:title>Stammbaum</html:title>
-        <html:link type="text/css" rel="stylesheet" href="familytree.css"/> 
-      </html:head>
+      <head>
+        <title>Stammbaum</title>
+        <link type="text/css" rel="stylesheet" href="familytree.css"/> 
+      </head>
       
       
-      <html:body>
+      <body>
+        <div id="bodydiv">
       
-        <html:header>
-          <!--Logo oder aehnliches-->
-          *Cooles Logo*
-        </html:header>
-        
-        <html:nav>
-          <!-- Evtl. Navigation Bar -->
-          <ul>
-            <li>Home</li>
-          </ul>
-        </html:nav>
-        
-        <html:main>
-          <!-- Content -->
+          <header>
+            <!--Logo oder aehnliches-->
+            *Cooles Logo*
+          </header>
           
-        </html:main>
+          <nav>
+            <!-- Evtl. Navigation Bar -->
+            <ul>
+              <li><a href="micha.xml">Home</a></li>
+            </ul>
+          </nav>
+          
+          <main>
+            <!-- Content -->
+            
+          </main>
         
-      </html:body>
+        </div>
+        
+      </body>
       
       
-    </html:html> 
+    </html> 
     
     
     
