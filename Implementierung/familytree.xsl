@@ -10,21 +10,40 @@
  <!--Templates, welche die genauen Transformationen beschreiben -->
 
   <xsl:template>
+   
+   
+   
     <html:html>
+    
+    
       <html:head>
         <html:title>Stammbaum</html:title>
       </html:head>
+      
+      
       <html:body>
+      
         <html:header>
-         
+          <!--Logo oder aehnliches-->
         </html:header>
-        <html:nav>
         
+        <html:nav>
+          <!-- Evtl. Navigation Bar -->
         </html:nav>
+        
         <html:main>
+          <!-- Content -->
         </html:main>
+        
       </html:body>
+      
+      
     </html:html> 
+    
+    
+    
+    
+    
   </xsl:template>
 
 </xsl:stylesheet>
