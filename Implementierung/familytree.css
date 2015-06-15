@@ -1,38 +1,49 @@
+/*
+	Hintergrund
+*/
 body {
-
   background: -webkit-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* Chrome 10+, Saf5.1+ */
   background:    -moz-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* FF3.6+ */
   background:     -ms-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* IE10 */
   background:      -o-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* W3C */
-        
+  background:         linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* W3C */ 
 }
 
 #bodydiv {
 	width: 60%;
 	margin-left: auto;
     margin-right: auto;
-	background-color:white;
+    background-color:#aaaaaa;
+}
+
+main {
+	margin-top:20pt;
+    background-color:white;
 }
 
 
+/*
+	Menu Bar
+*/
 #menu {
-	width:100%;
+	width:90%;
     list-style-type: none;
     margin: 0;
+	margin-left: auto;
+    margin-right: auto;
     padding: 0;
     overflow: hidden;
 }
 
 #menu_item {
-	width: 50%;
+	width: 25%;
     float: left;
 }
 
 #menu_link:link, #menu_link:visited {
     display: block;
     font-weight: bold;
-    color: black;
+    color: #3a7bd5;
     background-color: #E8E8E8 ;
     text-align: center;
     padding: 4px;
@@ -41,6 +52,7 @@ body {
 }
 
 #menu_link:hover, #menu_link:active {
-    background-color: white;
+    background-color: #3a7bd5;
+    color:white;
 }
 

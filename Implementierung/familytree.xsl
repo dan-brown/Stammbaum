@@ -25,24 +25,29 @@
         <div id="bodydiv">
       
           <header>
-            <!--Logo oder aehnliches-->
+            <img src="media/img/logo.png" width="300px" heigth="150px"/>
           </header>
           
           <nav>
             <!-- Evtl. Navigation Bar -->
             <ul id="menu">
               <li id="menu_item"><a id="menu_link" href="micha.xml">Home</a></li>
-              <li id="menu_item"><a id="menu_link" href="micha.xml">Impressum</a></li>
+              <li id="menu_item"><a id="menu_link" href="micha.xml">Tooooooood</a></li>
+              <li id="menu_item"><a id="menu_link" href="micha.xml">oder so</a></li>
+              <li id="menu_item"><a id="menu_link" href="impressum.html">Impressum</a></li>
             </ul>
           </nav>
           
           <main>
             <!-- Content -->
-            
+            <h1>Stammbaum</h1>
           </main>
+          
+          <footer>
+            Für externe Links übernehmen wir keine Verantwortung!
+          </footer>
         
         </div>
-        
       </body>
       
       
