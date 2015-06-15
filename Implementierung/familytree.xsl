@@ -26,13 +26,13 @@
       
           <header>
             <!--Logo oder aehnliches-->
-            *Cooles Logo*
           </header>
           
           <nav>
             <!-- Evtl. Navigation Bar -->
-            <ul>
-              <li><a href="micha.xml">Home</a></li>
+            <ul id="menu">
+              <li id="menu_item"><a id="menu_link" href="micha.xml">Home</a></li>
+              <li id="menu_item"><a id="menu_link" href="micha.xml">Impressum</a></li>
             </ul>
           </nav>
           
