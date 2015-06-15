@@ -51,6 +51,17 @@ main {
     text-transform: uppercase;
 }
 
+#menu_link_selected:link, #menu_link_selected:visited {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #3a7bd5;
+    color:white;
+}
+
 #menu_link:hover, #menu_link:active {
     background-color: #3a7bd5;
     color:white;
