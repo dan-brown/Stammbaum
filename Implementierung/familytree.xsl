@@ -18,6 +18,9 @@
       <head>
         <title>Stammbaum</title>
         <link type="text/css" rel="stylesheet" href="familytree.css"/> 
+        <link rel="icon" 
+              type="image/png" 
+              href="media/img/logo_small.png"/>
       </head>
       
       
@@ -32,8 +35,8 @@
             <!-- Evtl. Navigation Bar -->
             <ul id="menu">
               <li id="menu_item"><a id="menu_link" href="index.html">Home</a></li>
-              <li id="menu_item"><a id="menu_link_selected" href="familytree_1.xml">Stammbaum anzeigen</a></li>
-              <li id="menu_item"><a id="menu_link" href="familytree_1.xml">Stammbaum erstellen</a></li>
+              <li id="menu_item"><a id="menu_link_selected" href="familytree_1.xml">Der Stammbaum</a></li>
+              <li id="menu_item"><a id="menu_link" href="erstellen.html">Erstellen</a></li>
               <li id="menu_item"><a id="menu_link" href="impressum.html">Impressum</a></li>
             </ul>
           </nav>
@@ -41,11 +44,8 @@
           <main>
             <!-- Content -->
             <h1>Stammbaum</h1>
+            
           </main>
-          
-          <footer>
-            Für externe Links übernehmen wir keine Verantwortung!
-          </footer>
         
         </div>
       </body>
