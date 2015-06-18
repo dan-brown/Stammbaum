@@ -32,10 +32,10 @@
           <html:nav>
             <!-- Evtl. Navigation Bar -->
             <html:ul id="menu">
-              <html:li class="menu_item"><a id="menu_link" href="home.html">Home</a></html:li>
-              <html:li class="menu_item"><a id="menu_link_selected" href="familytree_1.xml">Der Stammbaum</a></html:li>
-              <html:li class="menu_item"><a id="menu_link" href="erstellen.html">Erstellen</a></html:li>
-              <html:li class="menu_item"><a id="menu_link" href="impressum.html">Impressum</a></html:li>
+              <html:li class="menu_item"><html:a class="menu_link" href="home.html">Home</html:a></html:li>
+              <html:li class="menu_item"><html:a id="menu_link_selected" href="familytree_1.xml">Der Stammbaum</html:a></html:li>
+              <html:li class="menu_item"><html:a class="menu_link" href="erstellen.html">Erstellen</html:a></html:li>
+              <html:li class="menu_item"><html:a class="menu_link" href="impressum.html">Impressum</html:a></html:li>
             </html:ul>
           </html:nav>
 
