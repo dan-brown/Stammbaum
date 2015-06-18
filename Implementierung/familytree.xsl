@@ -10,8 +10,6 @@
  <!--Templates, welche die genauen Transformationen beschreiben -->
 
   <xsl:template match="/">
-     
-   
     <html>
     
     
@@ -34,7 +32,7 @@
           <nav>
             <!-- Evtl. Navigation Bar -->
             <ul id="menu">
-              <li id="menu_item"><a id="menu_link" href="index.html">Home</a></li>
+              <li id="menu_item"><a id="menu_link" href="home.html">Home</a></li>
               <li id="menu_item"><a id="menu_link_selected" href="familytree_1.xml">Der Stammbaum</a></li>
               <li id="menu_item"><a id="menu_link" href="erstellen.html">Erstellen</a></li>
               <li id="menu_item"><a id="menu_link" href="impressum.html">Impressum</a></li>
@@ -53,11 +51,5 @@
       
       
     </html> 
-    
-    
-    
-    
-    
   </xsl:template>
-
 </xsl:stylesheet>

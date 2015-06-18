@@ -7,6 +7,7 @@ body {
   background:     -ms-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* IE10 */
   background:      -o-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* Opera 11.10+ */
   background:         linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* W3C */ 
+  font-family: "Arial", Arial, sans-serif;
 }
 
 #bodydiv {
@@ -18,6 +19,9 @@ body {
 
 main {
 	margin-top:20pt;
+	padding-bottom:25pt;
+	padding-top:5pt;
+    min-heigth: 50%;
     background-color:white;
 }
 
@@ -67,3 +71,23 @@ main {
     color:white;
 }
 
+/*
+	Main
+*/
+h1{
+    color: #3a7bd5;
+	position:relative;
+	left:5%;
+}
+
+h5{
+	position:relative;
+	left:5%;
+	padding-top: 25pt;
+	font-size:110%;
+}
+
+p{
+	position:relative;
+	left:5%;
+}
