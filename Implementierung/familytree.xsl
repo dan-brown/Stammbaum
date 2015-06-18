@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:stylesheet version="1.0"
-     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-      xmlns:html="html">
+     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
  <!-- <xsl:output method="xml" encoding ="UTF-8"
      doctype-public="Public-ID der Ausgabedateigrammatik"
      doctype-system="System-ID der Ausgabedateigrammatik"/> 
