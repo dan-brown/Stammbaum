@@ -22,13 +22,13 @@ main {
 	padding-bottom:25pt;
 	padding-top:5pt;
     min-heigth: 50%;
-    background-color:white;
+	background-color: white;
 }
 
 
 /*
 	Menu Bar
-*/
+*/	
 #menu {
 	width:90%;
     list-style-type: none;
