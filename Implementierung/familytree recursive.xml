@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="familytree.xsl"?>
+<!DOCTYPE familytree SYSTEM "familytree recursive.dtd">
+<familytree>
+    <person pid="0" forename="Daniel" surname="Brown" birthdate="27.09.1994" male="TRUE"/>
+    <person pid="1" forename="Micha" surname="Piertzik" birthdate="09.01.1996" male="TRUE"/>
+    <person pid="2" forename="Chiara" surname="Armbruster" birthdate="29.04.1996" male="FALSE"/>
+    <person pid="3" forename="Opa" surname="Mustermann" male="TRUE">
+        <person pid="4" forename="Max" surname="Mustermann" male="FALSE"/>
+    </person>
+    <person pid="5" forename="Oma" surname="Mustermann" male="FALSE"/>
+</familytree>

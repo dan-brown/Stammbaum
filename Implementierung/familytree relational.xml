@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="familytree.xsl"?>
+<!DOCTYPE familytree SYSTEM "familytree relational.dtd">
+<familytree>
+    <person pid="0" forename="Daniel" surname="Brown" birthdate="27.09.1994" male="TRUE"/>
+    <person pid="1" forename="Micha" surname="Piertzik" birthdate="09.01.1996" male="TRUE"/>
+    <person pid="2" forename="Chiara" surname="Armbruster" birthdate="29.04.1996" male="FALSE"/>
+    <person pid="3" forename="Opa" surname="Mustermann" male="TRUE">LOL</person>
+    <person pid="4" forename="Oma" surname="Mustermann" male="FALSE"/>
+    <person pid="5" forename="Max" surname="Mustermann" male="TRUE"/>
+    <person pid="6" forename="Maria" surname="Mustermann" male="FALSE"/>
+    <person pid="7" forename="Sohn" surname="Mustermann" male="TRUE"/>
+    <family parent1="3" parent2="4" children="5">Lol</family>
+    <family parent1="5" parent2="6" children="243">Lol</family>
+</familytree>

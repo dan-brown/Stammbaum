@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+        <!ELEMENT familytree (person*)>
+
+        <!ELEMENT person (person)*>
+        <!ATTLIST person
+                pid ID #REQUIRED
+                forename CDATA #REQUIRED
+                surname CDATA #REQUIRED
+                male (TRUE|FALSE) #REQUIRED
+                birthdate PCDATA #IMPLIED
+                deathdate PCDATA #IMPLIED
+                >
