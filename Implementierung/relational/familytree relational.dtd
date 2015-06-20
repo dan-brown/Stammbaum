@@ -5,10 +5,9 @@
                 pid ID #REQUIRED
                 forename CDATA #REQUIRED
                 surname CDATA #REQUIRED
-                male (TRUE|FALSE) #REQUIRED
-                birthdate PCDATA #IMPLIED
-                deathdate PCDATA #IMPLIED
-                parents IDREFS #IMPLIED
+                sex (M|F) #REQUIRED
+                birthdate CDATA #IMPLIED
+                deathdate CDATA #IMPLIED
                 spouse IDREF #IMPLIED
                 >
 
