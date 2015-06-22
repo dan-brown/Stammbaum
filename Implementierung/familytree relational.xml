@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <?xml-stylesheet type="text/xsl" href="familytree relational.xsl"?>
-<!DOCTYPE familytree SYSTEM "familytree relational.dtd">
+<!DOCTYPE familytree SYSTEM "C:\Users\xce35l0\IntelliJ\Stammbaum\Implementierung\familytree relational.dtd">
 <familytree>
     <person pid="0" forename="Daniel" surname="Brown" birthdate="27.09.1994" sex="M"/>
     <person pid="1" forename="Micha" surname="Piertzik" birthdate="09.01.1996" sex="M"/>
