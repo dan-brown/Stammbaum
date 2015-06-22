@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
         <!ENTITY % personattributes "
                 pid ID #REQUIRED
                 forename CDATA #REQUIRED
@@ -7,11 +7,11 @@
                 birth_date CDATA #IMPLIED
                 death_date CDATA #IMPLIED">
 
-        <!ELEMENT familytree (person, partner*)>
+        <!ELEMENT familytree (person, inlaw*)>
 
         <!ELEMENT person (person*)>
         <!ATTLIST person %personattributes;
                 partner IDREF #IMPLIED>
 
-        <!ELEMENT partner EMPTY>
-        <!ATTLIST partner %personattributes;>
+        <!ELEMENT inlaw EMPTY>
+        <!ATTLIST inlaw %personattributes;>
