@@ -1,12 +1,17 @@
 <?xml version="1.0" ?>
-        <!ELEMENT familytree (person*)>
-
-        <!ELEMENT person (person)*>
-        <!ATTLIST person
+        <!ENTITY % personattributes "
                 pid ID #REQUIRED
                 forename CDATA #REQUIRED
                 surname CDATA #REQUIRED
-                male (TRUE|FALSE) #REQUIRED
-                birthdate PCDATA #IMPLIED
-                deathdate PCDATA #IMPLIED
-                >
+                sex (M|F) #REQUIRED
+                birth_date CDATA #IMPLIED
+                death_date CDATA #IMPLIED">
+
+        <!ELEMENT familytree (person, partner*)>
+
+        <!ELEMENT person (person*)>
+        <!ATTLIST person %personattributes;
+                partner IDREF #IMPLIED>
+
+        <!ELEMENT partner EMPTY>
+        <!ATTLIST partner %personattributes;>
