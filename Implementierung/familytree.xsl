@@ -17,7 +17,7 @@
                 <html:link type="text/css" rel="stylesheet" href="familytree.css"/>
                 <html:link rel="icon" 
              	 type="image/png" 
-             	 href="media/img/Familytree_small.png"/>
+             	 href="media/img/favicon.png"/>
        </html:head>
 
 
