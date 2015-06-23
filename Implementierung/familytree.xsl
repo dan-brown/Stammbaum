@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html" encoding="UTF-8" indent="yes"/>
+    <xsl:key name="inlaw_by_pid" match="inlaw" use="@pid"/>
     <xsl:template match="/familytree">
         <html>
             <head>
@@ -87,7 +88,13 @@
                                             </xsl:otherwise>
                                         </xsl:choose>
                                     </td>
-                                    <td class="table_content_cell">Hier soll der Partner referenziert werden</td>
+                                    <td class="table_content_cell">
+                                        <xsl:for-each select="key('inlaw_by_pid', @partner)">
+                                            <xsl:value-of select="@forename"/>
+                                            <xsl:text> </xsl:text>
+                                            <xsl:value-of select="@surname"/>
+                                        </xsl:for-each>
+                                    </td>
                                 </tr>
                             </xsl:for-each>
                         </table>
