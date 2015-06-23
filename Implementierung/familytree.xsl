@@ -72,9 +72,6 @@
                                         </xsl:choose>
                                     </td>
                                     <td class="table_content_cell">
-                                        <xsl:value-of select="@birth_date"/>
-                                    </td>
-                                    <td class="table_content_cell">
                                         <xsl:choose>
                                             <xsl:when test="not(@birth_date)">-</xsl:when>
                                             <xsl:otherwise>
@@ -90,8 +87,7 @@
                                             </xsl:otherwise>
                                         </xsl:choose>
                                     </td>
-                                    <td class="table_content_cell">
-                                    </td>
+                                    <td class="table_content_cell">Hier soll der Partner referenziert werden</td>
                                 </tr>
                             </xsl:for-each>
                         </table>
