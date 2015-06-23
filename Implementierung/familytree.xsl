@@ -26,7 +26,7 @@
                             <li class="menu_item">
                                 <a class="menu_link" href="home.html">Home</a>
                             </li>
-                            <li id="menu_item">
+                            <li class="menu_item">
                                 <a id="menu_link_selected" href="familytree.xml">Der Stammbaum</a>
                             </li>
                             <li class="menu_item">
