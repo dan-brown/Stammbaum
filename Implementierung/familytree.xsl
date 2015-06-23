@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
+    <xsl:output method="html" encoding="UTF-8" indent="yes"/>
     <xsl:template match="/familytree">
         <html>
             <head>
@@ -91,10 +91,6 @@
                                         </xsl:choose>
                                     </td>
                                     <td class="table_content_cell">
-                                        <xsl:for-each select="key('inlaw', @partner)">
-                                            <xsl:value-of select="@forename"/>&#160;
-                                            <xsl:value-of select="@surname"/>
-                                        </xsl:for-each>
                                     </td>
                                 </tr>
                             </xsl:for-each>
