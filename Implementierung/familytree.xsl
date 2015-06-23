@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:html="http://www.w3.org/1999/xhtml">
@@ -43,6 +42,7 @@
 
                     <!-- Main content -->
                     <html:main>
+                        <html:h1>Auflistung</html:h1>
 
                         <!-- Persons table-->
                         <html:h2>Personen</html:h2>
@@ -52,7 +52,6 @@
                                 <html:th class="table_head_cell">Forename</html:th>
                                 <html:th class="table_head_cell">Surname</html:th>
                                 <html:th class="table_head_cell">Geschl.</html:th>
-                                <html:th class="table_head_cell">Alter</html:th>
                                 <html:th class="table_head_cell">Geb. am</html:th>
                                 <html:th class="table_head_cell">Todestag</html:th>
                                 <html:th class="table_head_cell">Ehepartner</html:th>
@@ -111,7 +110,6 @@
                                 <html:th class="table_head_cell">Forename</html:th>
                                 <html:th class="table_head_cell">Surname</html:th>
                                 <html:th class="table_head_cell">Geschl.</html:th>
-                                <html:th class="table_head_cell">Alter</html:th>
                                 <html:th class="table_head_cell">Geb. am</html:th>
                                 <html:th class="table_head_cell">Todestag</html:th>
                             </html:tr>
@@ -133,9 +131,6 @@
                                             <xsl:when test="@sex = 'M'">männl.</xsl:when>
                                             <xsl:otherwise>weibl.</xsl:otherwise>
                                         </xsl:choose>
-                                    </html:td>
-                                    <html:td class="table_content_cell">
-                                        <xsl:value-of select="@birth_date"/>
                                     </html:td>
                                     <html:td class="table_content_cell">
                                         <xsl:choose>
