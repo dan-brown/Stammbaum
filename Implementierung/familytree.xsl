@@ -151,10 +151,33 @@
 
                         <!-- Familytree -->
                         <h1>Stammbaum</h1>
-
-                    </main>
+                          <xsl:call-template name="tree">
+                            <xsl:with-param name="xpath" select="/familytree" />
+                          </xsl:call-template>
+                        
+                        </main>
                 </div>
             </body>
         </html>
+    </xsl:template>
+    
+    <xsl:template name="tree">
+        <xsl:param name="xpath"/>
+    
+        <ul class="familytree">
+          <xsl:for-each select="$xpath/child::person">
+            <li class="familymember">
+              <xsl:value-of select="@forename"/> 
+              <xsl:value-of select="@surname"/>
+              <xsl:if test="child::*">
+               	<xsl:call-template name="tree">
+                    <xsl:with-param name="xpath" select="$xpath/child::*" />
+                </xsl:call-template>
+              </xsl:if>
+            </li>
+          </xsl:for-each>
+        </ul>
+    
+    
     </xsl:template>
 </xsl:stylesheet>
