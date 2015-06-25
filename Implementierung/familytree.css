@@ -131,13 +131,11 @@ p{
 
 .familymember {
     float:left;
+    width:100%;
 }
 
 div.member {
 	display: block;
-	margin-top:20pt;
-	margin-left: auto;
-    margin-right: auto;
     margin: 8pt;
     padding: 2pt;
     border: 1pt dotted black;
@@ -147,4 +145,12 @@ div.member {
 .inlaw {
 	margin-left:7pt; 
     font-weight: normal;
+}
+
+.space {
+	white-space: pre;
+}
+
+.space:after {
+	content:' ';
 }

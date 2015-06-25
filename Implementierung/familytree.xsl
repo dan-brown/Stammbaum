@@ -8,7 +8,7 @@
                 <title>Stammbaum</title>
                 <link type="text/css" rel="stylesheet" href="familytree.css"/>
                 <link type="text/css" rel="stylesheet" href="table.css"/>
-                <link rel="icon" type="image/png" href="media/img/logo_small.png"/>
+                <link rel="icon" type="image/png" href="media/img/favicon.png"/>
             </head>
             <body>
                 <div id="bodydiv">
@@ -182,16 +182,25 @@
     
     <xsl:template name="display_person">
         <div class="member">
-            <xsl:value-of select="@forename"/> 
-            <xsl:value-of select="@surname"/>
-            <strong class="inlaw">
+          <xsl:call-template name="display_information">
+            <xsl:with-param name="xpath" select="." />
+          </xsl:call-template>
+            <span class="inlaw">
               <xsl:if test="child::inlaw">
-                  
-                  <xsl:value-of select="child::inlaw/@forename"/> 
-                  <xsl:value-of select="child::inlaw/@surname"/>
+                  <xsl:call-template name="display_information">
+                    <xsl:with-param name="xpath" select="child::inlaw" />
+                  </xsl:call-template>
               </xsl:if>
-            </strong>
+            </span>
         </div>
+    </xsl:template>
+    
+    <xsl:template name="display_information">
+        <xsl:param name="xpath"/>
+        <span class="space"><xsl:value-of select="$xpath/@forename"/></span>
+        <span class="space"><xsl:value-of select="$xpath/@surname"/></span>
+        <span class="space">(<xsl:value-of select="$xpath/@sex"/>)</span>
+    
     </xsl:template>
     
 </xsl:stylesheet>
