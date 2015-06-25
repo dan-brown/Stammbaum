@@ -131,15 +131,14 @@ p{
 
 .familymember {
     float:left;
-    width:100%;
+    text-align: center;
 }
 
 div.member {
-	display: block;
+	display: inline-block;
     margin: 8pt;
     padding: 2pt;
     border: 1pt dotted black;
-    text-align: center;
 }
 
 .inlaw {
