@@ -121,10 +121,28 @@ p{
 */
 
 .familytree {
-	list-style-type: none;
+    list-style-type: none;
+ 	margin: 0;
+	margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    overflow: hidden;
+}
+.familymember {
+    float:left;
 }
 
-.familymember {
+div.member {
 	display: block;
-	width:150pt;
+	margin-top:20pt;
+    text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+    padding: 4px;
+	
 }
+
+.inlaw {
+	margin-left:10pt; 
+    font-weight: normal;
+}	

@@ -41,9 +41,9 @@
 
                     <!-- Main content -->
                     <main>
+                        <!--  
                         <h1>Auflistung</h1>
 
-                        <!-- Persons table-->
                         <h2>Personen</h2>
                         <table class="table">
                             <tr class="table_head_row">
@@ -99,7 +99,6 @@
                             </xsl:for-each>
                         </table>
 
-                        <!-- Partners table-->
                         <h2>Zugeheiratete</h2>
                         <table class="table">
                             <tr id="table_head_row">
@@ -111,7 +110,6 @@
                                 <th class="table_head_cell">Todestag</th>
                             </tr>
 
-                            <!-- Inlaws -->
                             <xsl:for-each select="//inlaw">
                                 <tr class="table_content_row">
                                     <td class="table_content_cell">
@@ -148,7 +146,7 @@
                                 </tr>
                             </xsl:for-each>
                         </table>
-
+                        -->
                         <!-- Familytree -->
                         <h1>Stammbaum</h1>
                           <xsl:call-template name="tree">
@@ -183,15 +181,17 @@
     </xsl:template>
     
     <xsl:template name="display_person">
-        <xsl:value-of select="@forename"/> 
-        <xsl:value-of select="@surname"/>
-        <strong id="inlaw">
-          <xsl:if test="child::inlaw">
-              
-              <xsl:value-of select="child::inlaw/@forename"/> 
-              <xsl:value-of select="child::inlaw/@surname"/>
-          </xsl:if>
-        </strong>
+        <div class="member">
+            <xsl:value-of select="@forename"/> 
+            <xsl:value-of select="@surname"/>
+            <strong class="inlaw">
+              <xsl:if test="child::inlaw">
+                  
+                  <xsl:value-of select="child::inlaw/@forename"/> 
+                  <xsl:value-of select="child::inlaw/@surname"/>
+              </xsl:if>
+            </strong>
+        </div>
     </xsl:template>
     
 </xsl:stylesheet>
