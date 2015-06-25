@@ -98,6 +98,11 @@ h1{
 	left:5%;
 }
 
+h2,h3,h4{
+	position:relative;
+	left:5%;
+} 
+
 h5{
 	position:relative;
 	left:5%;
@@ -108,4 +113,19 @@ h5{
 p{
 	position:relative;
 	left:5%;
+}
+
+
+/*
+	Familytree
+*/
+
+.familytree {
+	list-style-type: none;
+}
+
+.familymember {
+	display: block;
+	background-color:red;
+	width:150pt;
 }
