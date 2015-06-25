@@ -167,17 +167,31 @@
         <ul class="familytree">
           <xsl:for-each select="$xpath/child::person">
             <li class="familymember">
-              <xsl:value-of select="@forename"/> 
-              <xsl:value-of select="@surname"/>
-              <xsl:if test="child::*">
+              
+              <xsl:call-template name="display_person"/>         
+              
+              <!-- recursive select -->
+              <xsl:if test="child::person">
                	<xsl:call-template name="tree">
-                    <xsl:with-param name="xpath" select="$xpath/child::*" />
+                    <xsl:with-param name="xpath" select="$xpath/child::person" />
                 </xsl:call-template>
               </xsl:if>
             </li>
           </xsl:for-each>
         </ul>
     
-    
     </xsl:template>
+    
+    <xsl:template name="display_person">
+        <xsl:value-of select="@forename"/> 
+        <xsl:value-of select="@surname"/>
+        <strong id="inlaw">
+          <xsl:if test="child::inlaw">
+              
+              <xsl:value-of select="child::inlaw/@forename"/> 
+              <xsl:value-of select="child::inlaw/@surname"/>
+          </xsl:if>
+        </strong>
+    </xsl:template>
+    
 </xsl:stylesheet>

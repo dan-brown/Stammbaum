@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-        <!ELEMENT familytree (person, inlaw*)>
+        <!ELEMENT familytree (person)>
 
-        <!ELEMENT person (person*)>
+        <!ELEMENT person (inlaw?, person*)>
         <!ATTLIST person  pid ID #REQUIRED
+
                 forename CDATA #REQUIRED
                 surname CDATA #REQUIRED
                 sex (M|F) #REQUIRED
