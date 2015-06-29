@@ -41,112 +41,6 @@
 
                     <!-- Main content -->
                     <main>
-                        <!--  
-                        <h1>Auflistung</h1>
-
-                        <h2>Personen</h2>
-                        <table class="table">
-                            <tr class="table_head_row">
-                                <th class="table_head_cell">PID</th>
-                                <th class="table_head_cell">Forename</th>
-                                <th class="table_head_cell">Surname</th>
-                                <th class="table_head_cell">Geschl.</th>
-                                <th class="table_head_cell">Geb. am</th>
-                                <th class="table_head_cell">Todestag</th>
-                                <th class="table_head_cell">Ehepartner</th>
-                            </tr>
-                            <xsl:for-each select="//person">
-                                <tr class="table_content_row">
-                                    <td class="table_content_cell">
-                                        <xsl:value-of select="@pid"/>
-                                    </td>
-                                    <td class="table_content_cell">
-                                        <xsl:value-of select="@forename"/>
-                                    </td>
-                                    <td class="table_content_cell">
-                                        <xsl:value-of select="@surname"/>
-                                    </td>
-                                    <td class="table_content_cell">
-                                        <xsl:choose>
-                                            <xsl:when test="@sex = 'M'">männl.</xsl:when>
-                                            <xsl:otherwise>weibl.</xsl:otherwise>
-                                        </xsl:choose>
-                                    </td>
-                                    <td class="table_content_cell">
-                                        <xsl:choose>
-                                            <xsl:when test="not(@birth_date)">-</xsl:when>
-                                            <xsl:otherwise>
-                                                <xsl:value-of select="@birth_date"/>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </td>
-                                    <td class="table_content_cell">
-                                        <xsl:choose>
-                                            <xsl:when test="not(@death_date)">-</xsl:when>
-                                            <xsl:otherwise>
-                                                <xsl:value-of select="@death_date"/>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </td>
-                                    <td class="table_content_cell">
-                                        <xsl:for-each select="key('inlaw_by_pid', @partner)">
-                                            <xsl:value-of select="@forename"/>
-                                            <xsl:text> </xsl:text>
-                                            <xsl:value-of select="@surname"/>
-                                        </xsl:for-each>
-                                    </td>
-                                </tr>
-                            </xsl:for-each>
-                        </table>
-
-                        <h2>Zugeheiratete</h2>
-                        <table class="table">
-                            <tr id="table_head_row">
-                                <th class="table_head_cell">PID</th>
-                                <th class="table_head_cell">Forename</th>
-                                <th class="table_head_cell">Surname</th>
-                                <th class="table_head_cell">Geschl.</th>
-                                <th class="table_head_cell">Geb. am</th>
-                                <th class="table_head_cell">Todestag</th>
-                            </tr>
-
-                            <xsl:for-each select="//inlaw">
-                                <tr class="table_content_row">
-                                    <td class="table_content_cell">
-                                        <xsl:value-of select="@pid"/>
-                                    </td>
-                                    <td class="table_content_cell">
-                                        <xsl:value-of select="@forename"/>
-                                    </td>
-                                    <td class="table_content_cell">
-                                        <xsl:value-of select="@surname"/>
-                                    </td>
-                                    <td class="table_content_cell">
-                                        <xsl:choose>
-                                            <xsl:when test="@sex = 'M'">männl.</xsl:when>
-                                            <xsl:otherwise>weibl.</xsl:otherwise>
-                                        </xsl:choose>
-                                    </td>
-                                    <td class="table_content_cell">
-                                        <xsl:choose>
-                                            <xsl:when test="not(@birth_date)">-</xsl:when>
-                                            <xsl:otherwise>
-                                                <xsl:value-of select="@birth_date"/>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </td>
-                                    <td class="table_content_cell">
-                                        <xsl:choose>
-                                            <xsl:when test="not(@death_date)">-</xsl:when>
-                                            <xsl:otherwise>
-                                                <xsl:value-of select="@death_date"/>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </td>
-                                </tr>
-                            </xsl:for-each>
-                        </table>
-                        -->
                         <!-- Familytree -->
                         <h1>Stammbaum</h1>
                           <xsl:call-template name="tree">
@@ -171,7 +65,7 @@
               <!-- recursive select -->
               <xsl:if test="child::person">
                	<xsl:call-template name="tree">
-                    <xsl:with-param name="xpath" select="$xpath/child::person" />
+                    <xsl:with-param name="xpath" select="self::person" />
                 </xsl:call-template>
               </xsl:if>
             </li>
