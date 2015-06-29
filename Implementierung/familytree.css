@@ -2,12 +2,13 @@
 	Hintergrund
 */
 body {
-  background: -webkit-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* W3C */ 
-  font-family: "Arial", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: -webkit-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* Chrome 10+, Saf5.1+ */
+    background: -ms-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* IE10 */
+    background: -o-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* Opera 11.10+ */
+    background: linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* W3C */
+    font-family: "Arial", Arial, sans-serif;
 }
 
 #index_logo {
@@ -28,7 +29,7 @@ main {
 	margin-top:20pt;
 	padding-bottom:25pt;
 	padding-top:5pt;
-    min-heigth: 50%;
+    min-height: 50%;
 	background-color: white;
 }
 

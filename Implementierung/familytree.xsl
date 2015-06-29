@@ -8,9 +8,18 @@
                 <title>Stammbaum</title>
                 <link type="text/css" rel="stylesheet" href="familytree.css"/>
                 <link type="text/css" rel="stylesheet" href="table.css"/>
+                <link type="text/css" rel="stylesheet" href="infobox.css"/>
                 <link rel="icon" type="image/png" href="media/img/favicon.png"/>
+                <script src="http://code.jquery.com/jquery-2.1.4.js"/>
+                <script src="familytree.js"/>
             </head>
             <body>
+                <div id="infobox">
+                    <div id="infobox_content">
+                        Inhalt
+                    </div>
+                    <div id="infobox_background"/>
+                </div>
                 <div id="bodydiv">
 
                     <!-- Header -->
@@ -43,67 +52,78 @@
                     <main>
                         <!-- Familytree -->
                         <h1>Stammbaum</h1>
-                          <!-- <a id="familytree" href="familytree.xml">-->
-                          <xsl:call-template name="tree">
-                            <xsl:with-param name="xpath" select="/familytree" />
-                          </xsl:call-template>
-                          <!-- </a>-->
-                          
-                          <div id="test1">
+                        <!-- <a id="familytree" href="familytree.xml">-->
+                        <xsl:call-template name="tree">
+                            <xsl:with-param name="xpath" select="/familytree"/>
+                        </xsl:call-template>
+                        <!-- </a>-->
+
+                        <!-- Linking lines -->
+                        <div id="test1">
                             test1
-                          </div>
-                          
-                          <div id="test2">
+                        </div>
+
+                        <div id="test2">
                             test2
-                          </div>
-                        </main>
+                        </div>
+                    </main>
                 </div>
             </body>
         </html>
     </xsl:template>
-    
+
     <xsl:template name="tree">
         <xsl:param name="xpath"/>
-    
+
         <ul class="familytree">
-          <xsl:for-each select="$xpath/child::person">
-            <li class="familymember">
-              <xsl:call-template name="display_person"/>         
-              <!-- recursive select -->
-              <xsl:if test="child::person">
-               	<xsl:call-template name="tree">
-                    <xsl:with-param name="xpath" select="self::person" />
-                </xsl:call-template>
-              </xsl:if>
-            </li>
-          </xsl:for-each>
+            <xsl:for-each select="$xpath/child::person">
+                <li class="familymember">
+                    <xsl:call-template name="display_person"/>
+                    <!-- recursive select -->
+                    <xsl:if test="child::person">
+                        <xsl:call-template name="tree">
+                            <xsl:with-param name="xpath" select="self::person"/>
+                        </xsl:call-template>
+                    </xsl:if>
+                </li>
+            </xsl:for-each>
         </ul>
-    
+
     </xsl:template>
-    
+
     <xsl:template name="display_person">
         <div class="member">
-          <xsl:call-template name="display_information">
-            <xsl:with-param name="xpath" select="." />
-          </xsl:call-template>
+            <xsl:call-template name="display_information">
+                <xsl:with-param name="xpath" select="."/>
+            </xsl:call-template>
             <span class="inlaw">
-              <xsl:if test="child::inlaw">
-                  <xsl:call-template name="display_information">
-                    <xsl:with-param name="xpath" select="child::inlaw" />
-                  </xsl:call-template>
-              </xsl:if>
+                <xsl:if test="child::inlaw">
+                    <xsl:call-template name="display_information">
+                        <xsl:with-param name="xpath" select="child::inlaw"/>
+                    </xsl:call-template>
+                </xsl:if>
             </span>
         </div>
     </xsl:template>
-    
+
     <xsl:template name="display_information">
         <xsl:param name="xpath"/>
-        <span class="space"><xsl:value-of select="$xpath/@forename"/></span>
-        <span class="space"><xsl:value-of select="$xpath/@surname"/></span>
-        <span class="space">(<xsl:value-of select="$xpath/@sex"/>)</span><br/>
-        <span class="space"><xsl:value-of select="$xpath/@birth_date"/></span>
-        <span class="space"><xsl:value-of select="$xpath/@death_date"/></span>
-    
+        <span class="space">
+            <xsl:value-of select="$xpath/@forename"/>
+        </span>
+        <span class="space">
+            <xsl:value-of select="$xpath/@surname"/>
+        </span>
+        <span class="space">(<xsl:value-of select="$xpath/@sex"/>)
+        </span>
+        <br/>
+        <span class="space">
+            <xsl:value-of select="$xpath/@birth_date"/>
+        </span>
+        <span class="space">
+            <xsl:value-of select="$xpath/@death_date"/>
+        </span>
+
     </xsl:template>
-    
+
 </xsl:stylesheet>
