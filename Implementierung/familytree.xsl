@@ -93,7 +93,9 @@
         <xsl:param name="xpath"/>
         <span class="space"><xsl:value-of select="$xpath/@forename"/></span>
         <span class="space"><xsl:value-of select="$xpath/@surname"/></span>
-        <span class="space">(<xsl:value-of select="$xpath/@sex"/>)</span>
+        <span class="space">(<xsl:value-of select="$xpath/@sex"/>)</span><br/>
+        <span class="space"><xsl:value-of select="$xpath/@birth_date"/></span>
+        <span class="space"><xsl:value-of select="$xpath/@death_date"/></span>
     
     </xsl:template>
     
