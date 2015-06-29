@@ -120,13 +120,16 @@ p{
 	Familytree
 */
 
-#familytree:link #familytree:hover #familytree:visited {
+/*
+link
+#familytree {
 	color:black;
 }
 
 #familytree:active {
 	color:#aaaaaa;
 }
+*/
 
 .familytree {
     list-style-type: none;

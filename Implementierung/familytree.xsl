@@ -43,11 +43,11 @@
                     <main>
                         <!-- Familytree -->
                         <h1>Stammbaum</h1>
-                          <a id="familytree" href="familytree.xml">
+                          <!-- <a id="familytree" href="familytree.xml">-->
                           <xsl:call-template name="tree">
                             <xsl:with-param name="xpath" select="/familytree" />
                           </xsl:call-template>
-                          </a>
+                          <!-- </a>-->
                         </main>
                 </div>
             </body>
