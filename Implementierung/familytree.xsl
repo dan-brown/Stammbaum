@@ -48,6 +48,14 @@
                             <xsl:with-param name="xpath" select="/familytree" />
                           </xsl:call-template>
                           <!-- </a>-->
+                          
+                          <div id="test1">
+                            test1
+                          </div>
+                          
+                          <div id="test2">
+                            test2
+                          </div>
                         </main>
                 </div>
             </body>
