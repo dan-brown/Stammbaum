@@ -43,10 +43,11 @@
                     <main>
                         <!-- Familytree -->
                         <h1>Stammbaum</h1>
+                          <a id="familytree" href="familytree.xml">
                           <xsl:call-template name="tree">
                             <xsl:with-param name="xpath" select="/familytree" />
                           </xsl:call-template>
-                        
+                          </a>
                         </main>
                 </div>
             </body>
@@ -59,9 +60,7 @@
         <ul class="familytree">
           <xsl:for-each select="$xpath/child::person">
             <li class="familymember">
-              
               <xsl:call-template name="display_person"/>         
-              
               <!-- recursive select -->
               <xsl:if test="child::person">
                	<xsl:call-template name="tree">
