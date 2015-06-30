@@ -121,16 +121,6 @@ p{
 	Familytree
 */
 
-/*
-link
-#familytree {
-	color:black;
-}
-
-#familytree:active {
-	color:#aaaaaa;
-}
-*/
 
 .familytree {
     list-style-type: none;
@@ -139,12 +129,86 @@ link
     margin-right: auto;
     padding: 0;
     overflow: hidden;
+
+
+	padding-top: 20px;
+	position: relative;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
 }
 
-.familymember {
+.familymember li {
+
     float:left;
     text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 0 5px;
+    
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
 }
+
+.familymember li::before, .tree li::after{
+	content: '';
+	position: absolute; top: 0; /*right: 50%*/;
+	border-top: 1px solid black;
+	width: 50%; height: 20px;
+}
+/*new*/
+.familymember li::before {
+	left:0;
+	width:50%;
+	border-right: 1px solid black;
+}
+.familymember li::after{
+	/*right: auto;*/ left: 50%;
+	border-left: 1px solid black;
+}
+
+.familymember li:only-child::after, .tree li:only-child::before {
+	/*display: none;*/
+	border-top:0 none;
+	border-radius:0 !important;
+}
+
+.familymember li:only-child{ padding-top: 0;}
+
+.familymember li:first-child::before, .tree li:last-child::after{
+	border: 0 none;
+}
+
+.familymember li:last-child::before{
+	border-right: 1px solid black;
+	border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+}
+.familymember li:first-child::after{
+	border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+}
+
+.familytree ul ul::before{
+	content: '';
+	position: absolute; top: 0; left: 50%;
+	border-left: 1px solid black;
+	width: 0; height: 20px;
+}
+
+
+
+
+
+
+
+
+
+
 
 div.member {
 	display: inline-block;
