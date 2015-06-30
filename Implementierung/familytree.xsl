@@ -10,7 +10,6 @@
                 <link type="text/css" rel="stylesheet" href="table.css"/>
                 <link type="text/css" rel="stylesheet" href="infobox.css"/>
                 <link rel="icon" type="image/png" href="media/img/favicon.png"/>
-                <script src="http://code.jquery.com/jquery-2.1.4.js"/>
                 <script src="familytree.js"/>
             </head>
             <body>
@@ -93,6 +92,9 @@
 
     <xsl:template name="display_person">
         <div class="member">
+            <xsl:attribute name="data-pid">
+                <xsl:value-of select="@pid"/>
+            </xsl:attribute>
             <xsl:call-template name="display_information">
                 <xsl:with-param name="xpath" select="."/>
             </xsl:call-template>

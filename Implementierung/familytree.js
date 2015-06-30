@@ -1,19 +1,38 @@
-$(document).ready(init);
+var infobox;
+var content;
+var pid;
+var xml;
+window.onload = function(){ init();}
 
 function init(){
-    $('#infobox').hide();
-    $('.member').each(initActivator);
-    $('#infobox_background').click(hideInfoBox);
-}
+    var request = new XMLHttpRequest();
+    request.open("GET", "familytree.xml");
+    request.onreadystatechange = requestSent(request);
 
-function initActivator(){
-    $(this).click(showInfoBox);
+    infobox = document.getElementById("infobox");
+    content = document.getElementById("infobox_content");
+
+    hideInfoBox();
+    var activators = document.getElementsByClassName("member");
+    for (i = 0; i < activators.length; i++) {
+        activators[i].addEventListener("click", activateInfoBox);
+    }
+    document.getElementById("infobox_background").addEventListener("click", hideInfoBox);
 }
 
 function hideInfoBox(){
-    $("#infobox").hide();
+    infobox.style.display = "none";
 }
 
-function showInfoBox(){
-    $("#infobox").show();
+function activateInfoBox(){
+    pid = this.getAttribute("data-pid");
+    content.innerHTML = pid;
+    infobox.style.display = "block";
 }
+
+function requestSent(){
+    var response = this.responseText;
+    xml = new DOMParser().parseFromString(response, "text/xml");
+    console.log(xml);
+}
+
