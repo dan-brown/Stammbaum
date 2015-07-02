@@ -39,9 +39,6 @@
                 <a id="menu_link_selected" href="familytree.xml">Der Stammbaum</a>
               </li>
               <li class="menu_item">
-                <a class="menu_link" href="create.html">Erstellen</a>
-              </li>
-              <li class="menu_item">
                 <a class="menu_link" href="imprint.html">Impressum</a>
               </li>
             </ul>
