@@ -50,9 +50,9 @@
             <!-- Familytree -->
             <h1>Stammbaum</h1>
             <div id="familytree_div">
-              <xsl:call-template name="tree">
-                <xsl:with-param name="xpath" select="/familytree" />
-              </xsl:call-template>
+                <xsl:call-template name="tree">
+                  <xsl:with-param name="xpath" select="/familytree" />
+                </xsl:call-template>
             </div>
           </main>
         </div>

@@ -16,17 +16,21 @@
     padding: 0;
     overflow: hidden;
 	text-align: center;
-
 	padding-top: 20px;
 	position: relative;
 	
 	transition: all 0.5s;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
+
+	
+	white-space:nowrap ;
+	overflow:auto;
+	width: 100%;
 }
 
-.familymember li {
-	display: inline;
+.familytree li {
+	display: inline-block;
     float:left;
     text-align: center;
 	list-style-type: none;
@@ -61,7 +65,7 @@
 	border-radius:0 !important;
 }
 
-.familymember li:only-child{ padding-top: 10px;}
+.familymember li:only-child{ padding-top: 10px; }
 
 .familymember li:first-child::before, .familymember li:last-child::after{
 	border: 0 none;
