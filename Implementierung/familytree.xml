@@ -2,19 +2,19 @@
 <?xml-stylesheet type="text/xsl" href="familytree.xsl"?>
 <!DOCTYPE familytree SYSTEM "familytree.dtd">
 <familytree>
-    <person pid="_0" forename="Abraham J." surname="Simpson" sex="M" birth_date="20.10.2015" death_date="21.10.2015">
-        <person pid="_1" forename="???" surname="" sex="F">
-            <person pid="_2" forename="Herbert" surname="Powel" sex="M"/>
-        </person>
-        <person pid="_3" forename="Edwina" surname="" sex="F">
-            <person pid="_4" forename="Abbie" surname="" sex="F"/>
-        </person>
-        <person pid="_5" forename="Mona" surname="Simpson" sex="F">
-            <person pid="_6" forename="Homer" surname="Simpson" sex="M" birth_date="20.10.2015" death_date="21.10.2015">
-                <inlaw pid="_10" forename="Marge" surname="Simpson" sex="F"/>
-                <person pid="_7" forename="Maggie" surname="Simpson" sex="F"/>
-                <person pid="_8" forename="Lisa" surname="Simpson" sex="F"/>
-                <person pid="_9" forename="Bart" surname="Simpson" sex="M"/>
+    <person pid="_0" forename="Opa" surname="Mustermann" sex="M" partner="_7" birth_date="1920-04-04"
+            death_date="2013-06-07">
+        <inlaw pid="_7" forename="Oma" surname="Mustermann" sex="F"/>
+        <person pid="_8" forename="Papa" surname="Mustermann" sex="M" partner="_9">
+            <inlaw pid="_9" forename="Mama" surname="Mustermann" sex="F"/>
+            <person pid="_10" forename="Daniel" surname="Brown" birth_date="1994-09-27" sex="M"/>
+            <person pid="_2" forename="Micha" surname="Piertzik" birth_date="1996-01-09" sex="M"/>
+            <person pid="_3" forename="Chiara" surname="Armbruster" birth_date="1996-04-29" sex="F"/>
+            <person pid="_12" forename="Sarah" surname="Bauert" birth_date="1995-09-23" sex="F"/>
+            <person pid="_4" forename="Schwester" surname="Mustermann" sex="F">
+                <inlaw pid="_11" forename="Schwager" surname="Anders" sex="M"/>
+                <person pid="_5" forename="Neffe" surname="Mustermann" sex="M"/>
+                <person pid="_6" forename="Nichte" surname="Mustermann" sex="F"/>
             </person>
         </person>
     </person>

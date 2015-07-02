@@ -127,7 +127,7 @@ p{
     margin-right: auto;
     padding: 0;
     overflow: hidden;
-
+	text-align: center;
 
 	padding-top: 20px;
 	position: relative;
@@ -135,6 +135,7 @@ p{
 	transition: all 0.5s;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
+	
 }
 
 .familymember li {
@@ -143,14 +144,14 @@ p{
     text-align: center;
 	list-style-type: none;
 	position: relative;
-	padding: 20px 5px 0 5px;
+	padding: 10px 5px 0 5px;
     
 	transition: all 0.5s;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 }
 
-.familymember li::before, .tree li::after{
+.familymember li::before, .familymember li::after{
 	content: '';
 	position: absolute; top: 0; /*right: 50%*/;
 	border-top: 1px solid black;
@@ -167,15 +168,15 @@ p{
 	border-left: 1px solid black;
 }
 
-.familymember li:only-child::after, .tree li:only-child::before {
+.familymember li:only-child::after, .familymember li:only-child::before {
 	/*display: none;*/
 	border-top:0 none;
 	border-radius:0 !important;
 }
 
-.familymember li:only-child{ padding-top: 0;}
+.familymember li:only-child{ padding-top: 10px;}
 
-.familymember li:first-child::before, .tree li:last-child::after{
+.familymember li:first-child::before, .familymember li:last-child::after{
 	border: 0 none;
 }
 
@@ -211,8 +212,9 @@ p{
 div.member {
 	display: inline-block;
     margin: 8pt;
+	margin-bottom: 0;
     padding: 2pt;
-    border: 1pt dotted black;
+    border: 1pt solid black;
 }
 
 .inlaw {
@@ -226,14 +228,4 @@ div.member {
 
 .space:after {
 	content:' ';
-}
-
-
-
-#test1 {
-	
-}
-
-#test2 {
-	
 }
