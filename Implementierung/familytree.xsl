@@ -8,7 +8,6 @@
                 <title>Stammbaum</title>
                 <link type="text/css" rel="stylesheet" href="familytree.css"/>
                 <link type="text/css" rel="stylesheet" href="tree.css"/>
-                <link type="text/css" rel="stylesheet" href="table.css"/>
                 <link type="text/css" rel="stylesheet" href="infobox.css"/>
                 <link rel="icon" type="image/png" href="media/img/favicon.png"/>
                 <script src="familytree.js"/>
