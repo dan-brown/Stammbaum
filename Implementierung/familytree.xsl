@@ -28,7 +28,7 @@
                 alt="das Logo mit einem Baum und einer kleinen Familie" />
             </a>
           </header>
-    
+
           <!-- Navbar -->
           <nav>
             <ul id="menu">
@@ -54,7 +54,6 @@
                 </xsl:call-template>
             </div>
           </main>
-            
         </div>
       </body>
     </html>
