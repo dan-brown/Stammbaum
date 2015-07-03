@@ -13,30 +13,30 @@
                 <script src="familytree.js"/>
             </head>
             <body>
-                <div id="infobox">
-                    <div id="infobox_content">
-                        <form>
+                <div id="infobox_wrapper">
+                    <div id="infobox">
+                        <div id="infobox_content">
                             <div>
-                                Forename:&#160;
+                                <span class="edit_label">Vorname:&#160;</span>
                                 <span id="edit_forename" class="editable"/>
                             </div>
                             <div>
-                                Surname:&#160;
+                                <span class="edit_label">Nachname:&#160;</span>
                                 <span id="edit_surname" class="editable"/>
                             </div>
                             <div>
-                                Sex:&#160;
+                                <span class="edit_label">Geschlecht:&#160;</span>
                                 <span id="edit_sex" class="editable"/>
                             </div>
                             <div>
-                                Birthdate:&#160;
+                                <span class="edit_label">Geburtstag:&#160;</span>
                                 <span id="edit_birth_date" class="editable"/>
                             </div>
                             <div>
-                                Deathdate:&#160;
+                                <span class="edit_label">Todestag:&#160;</span>
                                 <span id="edit_death_date" class="editable"/>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div id="infobox_background"/>
                 </div>
