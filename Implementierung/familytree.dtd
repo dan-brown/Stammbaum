@@ -4,8 +4,8 @@
             forename CDATA #REQUIRED
             surname CDATA #REQUIRED
             sex (M|F) #REQUIRED
-            birth_date CDATA #IMPLIED
-            death_date CDATA #IMPLIED">
+            birth_date CDATA #REQUIRED
+            death_date CDATA #REQUIRED">
 
         <!ELEMENT familytree (person)>
 

@@ -3,18 +3,18 @@
 <!DOCTYPE familytree SYSTEM "familytree.dtd">
 <familytree>
     <person pid="_0" forename="Abraham J." surname="Simpson" sex="M" birth_date="20.10.2015" death_date="21.10.2015">
-        <person pid="_1" forename="???" surname="" sex="F">
-            <person pid="_2" forename="Herbert" surname="Powel" sex="M"/>
+        <person pid="_1" forename="???" surname="" sex="F" birth_date="" death_date="">
+            <person pid="_2" forename="Herbert" surname="Powel" sex="M" birth_date="" death_date=""/>
         </person>
-        <person pid="_3" forename="Edwina" surname="" sex="F">
-            <person pid="_4" forename="Abbie" surname="" sex="F"/>
+        <person pid="_3" forename="Edwina" surname="" sex="F" birth_date="" death_date="">
+            <person pid="_4" forename="Abbie" surname="" sex="F" birth_date="" death_date=""/>
         </person>
-        <person pid="_5" forename="Mona" surname="Simpson" sex="F">
+        <person pid="_5" forename="Mona" surname="Simpson" sex="F" birth_date="" death_date="">
             <person pid="_6" forename="Homer" surname="Simpson" sex="M" birth_date="20.10.2015" death_date="21.10.2015">
-                <inlaw pid="_10" forename="Marge" surname="Simpson" sex="F"/>
-                <person pid="_7" forename="Maggie" surname="Simpson" sex="F"/>
-                <person pid="_8" forename="Lisa" surname="Simpson" sex="F"/>
-                <person pid="_9" forename="Bart" surname="Simpson" sex="M"/>
+                <inlaw pid="_10" forename="Marge" surname="Simpson" sex="F" birth_date="" death_date=""/>
+                <person pid="_7" forename="Maggie" surname="Simpson" sex="F" birth_date="" death_date=""/>
+                <person pid="_8" forename="Lisa" surname="Simpson" sex="F" birth_date="" death_date=""/>
+                <person pid="_9" forename="Bart" surname="Simpson" sex="M" birth_date="" death_date=""/>
             </person>
         </person>
     </person>
