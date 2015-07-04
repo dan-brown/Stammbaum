@@ -2,7 +2,7 @@
   height: 100%;
   position: fixed;
   width: 100%;
-  z-index: 5;
+  z-index: 1;
 }
 
 #infobox_background {
@@ -11,28 +11,36 @@
     width: 100%;
 }
 
-#infobox_wrapper {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 30%;
-    text-align: center;
-}
-
 #infobox_content {
+    position: fixed;
+    left: 50%;
+    top: 20%;
     background-color: cornsilk;
     display: inline-block;
     padding: 20px;
     border: 1px solid black;
     box-shadow: 0px 0px 50px 15px black;
     text-align: left;
+    transform: translate(-50%, 0%);
 }
 
-.edit_label {
+.filler {
+    background: blue;
+    display: table-cell;
+}
+
+.categorylabel {
     display: inline-block;
-    width: 140px;
+    width: 100px;
 }​
+
+.info_input {
+    width: 100px;
+    color: red;
+}
 
 .member {
     cursor: pointer;
 }
+
+

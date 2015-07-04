@@ -13,33 +13,73 @@
                 <script src="familytree.js"/>
             </head>
             <body>
-                <div id="infobox_wrapper">
-                    <div id="infobox">
-                        <div id="infobox_content">
-                            <div>
-                                <span class="edit_label">Vorname:&#160;</span>
-                                <span id="edit_forename" class="editable"/>
-                            </div>
-                            <div>
-                                <span class="edit_label">Nachname:&#160;</span>
-                                <span id="edit_surname" class="editable"/>
-                            </div>
-                            <div>
-                                <span class="edit_label">Geschlecht:&#160;</span>
-                                <span id="edit_sex" class="editable"/>
-                            </div>
-                            <div>
-                                <span class="edit_label">Geburtstag:&#160;</span>
-                                <span id="edit_birth_date" class="editable"/>
-                            </div>
-                            <div>
-                                <span class="edit_label">Todestag:&#160;</span>
-                                <span id="edit_death_date" class="editable"/>
-                            </div>
-                        </div>
+                <div id="infobox">
+                    <div id="infobox_content">
+                        <form>
+                            <fieldset>
+                                <legend>Personeninformation</legend>
+
+                                <label class="categorylabel" for="input_forename">Vorname:</label>
+                                <input id="input_forename" type="tex" class="info_input"/>
+                                <br/>
+
+                                <label class="categorylabel" for="input_surname">Nachname:</label>
+                                <input id="input_surname" type="tex" class="info_input"/>
+                                <br/>
+
+                                <label class="categorylabel">Geschlecht:</label>
+                                <span class="info_input">
+                                    <input id="input_sex_male" name="sex" type="radio"/>
+                                    <label for="input_sex_male">männl.</label>
+                                    <input id="input_sex_female" name="sex" type="radio"/>
+                                    <label for="input_sex_female">weibl.</label>
+                                </span>
+                                <br/>
+
+                                <label class="categorylabel" for="input_birth_date">Geburtstag:</label>
+                                <input id="input_birth_date" type="text" class="info_input"/>
+                                <br/>
+
+                                <label class="categorylabel " for="input_death_date">Todestag:</label>
+                                <input id="input_death_date" type="text" class="info_input"/>
+                            </fieldset>
+                            <!-- nice to have
+                            <fieldset>
+                                <legend>Personeninformation</legend>
+
+                                <label for="input_forename">Vorname:</label>
+                                <input id="input_forename" type="tex" class="info_input"/>
+                                <span id="label_forename" class="info_display"/>
+                                <br/>
+
+                                <label for="">Nachname:</label>
+                                <input id="input_surname" type="tex" class="info_input"/>
+                                <span id="label_surname" class="info_display"/>
+                                <br/>
+
+                                <label for="input_sex">Geschlecht:</label>
+                                <span id="input_sex" class="info_input">
+                                    <input id="radio_male" name="sex" type="radio"/>
+                                    <input id="radio_female" name="sex" type="radio"/>
+                                </span>
+                                <span id="label_sex" class="info_display"/>
+                                <br/>
+
+                                <label for="input_birthdate">Geburtstag:</label>
+                                <input id="input_birthdate" type="date" class="info_input"/>
+                                <span id="label_birthdate" class="info_display"/>
+                                <br/>
+
+                                <label for="input_deathdate">Todestag:</label>
+                                <input id="input_deathdate" type="date" class="info_input"/>
+                                <span id="label_deathdate" class="info_display"/>
+                            </fieldset>
+                            -->
+                        </form>
                     </div>
                     <div id="infobox_background"/>
                 </div>
+
                 <div id="bodydiv">
 
                     <!-- Header -->
