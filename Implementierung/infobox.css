@@ -5,13 +5,7 @@
   z-index: 1;
 }
 
-#infobox_background {
-    background-color: rgba(0,0,0,0.8);
-    height: 100%;
-    width: 100%;
-}
-
-#infobox_content {
+#infoboxContent {
     position: fixed;
     left: 50%;
     top: 30%;
@@ -24,30 +18,34 @@
     transform: translate(-50%, 0%);
 }
 
-.categorylabel {
+#infoboxBackground {
+    background-color: rgba(0,0,0,0.8);
+    height: 100%;
+    width: 100%;
+}
+
+.inputLine {
+    margin: 5px 0px;
+}
+
+
+.inputLabel {
     display: inline-block;
     width: 100px;
-}​
-
-.info_input {
-    width: 1000px;
-    color: red;
-    background-color: blue;
 }
 
-.invalid {
-    background-color: orange;
-}
-
-#infobox_submit {
+.infoInput {
     float: right;
 }
 
-.form_button {
+.invalidInput {
+    background-color: orange;
+}
+
+.formButton {
     margin: 5px 0px 0px;
 }
-.member {
-    cursor: pointer;
+
+#infoboxSubmit {
+    float: right;
 }
-
-

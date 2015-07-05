@@ -10,7 +10,7 @@ body {
     margin:0;
 }
 
-#index_logo {
+#indexLogo {
 	display:block;
 	width: 55%;
 	margin-left: auto;
@@ -31,14 +31,14 @@ main {
 	background-color: white;
 }
 
-#imprint_content {
+#imprintContent {
     padding-bottom: 25pt;
 }
 
 /*
 	Menu Bar
 */	
-#logo_small {
+#logoSmall {
 	margin-left:50pt;
 }
 
@@ -52,12 +52,12 @@ main {
     overflow: hidden;
 }
 
-.menu_item {
+.menuItem {
 	width: 33%;
     float: left;
 }
 
-.menu_link:link, .menu_link:visited {
+.menuLink:link, .menuLink:visited {
     display: block;
     font-weight: bold;
     color: #3a7bd5;
@@ -68,7 +68,7 @@ main {
     text-transform: uppercase;
 }
 
-#menu_link_selected:link, #menu_link_selected:visited {
+#menuLinkSelected:link, #menuLinkSelected:visited {
     display: block;
     font-weight: bold;
     text-align: center;
@@ -79,7 +79,7 @@ main {
     color:white;
 }
 
-.menu_link:hover, .menu_link:active {
+.menuLink:hover, .menuLink:active {
     background-color: #3a7bd5;
     color:white;
 }
@@ -87,7 +87,7 @@ main {
 /*
 	Main
 */
-#logo_home {
+#logoHome {
 	display:block;
 	width:90%;
 	margin-right: auto;

@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="familytree.xsl"?>
+<!DOCTYPE familytree SYSTEM "familytree.dtd">
+<familytree>
+    <person pid="p0" forename="Abraham J." surname="Simpson" sex="M" birthDate="20.10.2015" deathDate="21.10.2015">
+        <person pid="p1" forename="???" surname="" sex="F" birthDate="" deathDate="">
+            <person pid="p2" forename="Herbert" surname="Powel" sex="M" birthDate="" deathDate=""/>
+        </person>
+        <person pid="p3" forename="Edwina" surname="" sex="F" birthDate="" deathDate="">
+            <person pid="p4" forename="Abbie" surname="" sex="F" birthDate="" deathDate=""/>
+        </person>
+        <person pid="p5" forename="Mona" surname="Simpson" sex="F" birthDate="" deathDate="">
+            <person pid="p6" forename="Homer" surname="Simpson" sex="M" birthDate="20.10.2015" deathDate="21.10.2015">
+                <inlaw pid="p10" forename="Marge" surname="Simpson" sex="F" birthDate="" deathDate=""/>
+                <person pid="p7" forename="Maggie" surname="Simpson" sex="F" birthDate="" deathDate=""/>
+                <person pid="p8" forename="Lisa" surname="Simpson" sex="F" birthDate="" deathDate=""/>
+                <person pid="p9" forename="Bart" surname="Simpson" sex="M" birthDate="" deathDate=""/>
+            </person>
+        </person>
+    </person>
+</familytree>

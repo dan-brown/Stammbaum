@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html" encoding="UTF-8" indent="yes"/>
-    <xsl:key name="inlaw_by_pid" match="inlaw" use="@pid"/>
+    <xsl:key name="inlawByPid" match="inlaw" use="@pid"/>
     <xsl:template match="/familytree">
         <html>
             <head>
@@ -16,42 +16,47 @@
             </head>
             <body>
                 <div id="infobox">
-                    <div id="infobox_content">
+                    <div id="infoboxContent">
                         <form>
                             <fieldset>
                                 <legend>Personeninformation</legend>
+                                <div class="inputLine">
+                                    <label class="inputLabel" for="inputForename">Vorname:</label>
+                                    <input id="inputForename" type="text" class="infoInput" placeholder="Vorname"/>
+                                    <br/>
+                                </div>
+                                <div class="inputLine">
+                                    <label class="inputLabel" for="inputSurname">Nachname:</label>
+                                    <input id="inputSurname" class="infoInput" type="text" placeholder="Nachname"/>
+                                    <br/>
+                                </div>
+                                <div class="inputLine">
+                                    <label class="inputLabel">Geschlecht:</label>
+                                    <span class="infoInput">
+                                        <input id="inputSexMale" name="sex" type="radio"/>
+                                        <label class="inputSexLabel" for="inputSexMale">männl.</label>
+                                        <input id="inputSexFemale" name="sex" type="radio"/>
+                                        <label class="inputSexLabel" for="inputSexFemale">weibl.</label>
+                                    </span>
+                                    <br/>
+                                </div>
+                                <div class="inputLine">
+                                    <label class="inputLabel" for="inputBirthDate">Geburtstag:</label>
+                                    <input id="inputBirthDate" type="text" class="infoInput" placeholder="T.M.JJJJ"/>
+                                    <br/>
+                                </div>
+                                <div class="inputLine">
 
-                                <label class="form_label" for="input_forename">Vorname:</label>
-                                <input id="input_forename" type="tex" class="info_input" placeholder="Vorname"/>
-                                <br/>
-
-                                <label class="form_label" for="input_surname">Nachname:</label>
-                                <input id="input_surname" type="tex" class="info_input" placeholder="Nachname"/>
-                                <br/>
-
-                                <label class="form_label">Geschlecht:</label>
-                                <span class="info_input">
-                                    <input id="input_sex_male" name="sex" type="radio"/>
-                                    <label class="input_sex_label" for="input_sex_male">männl.</label>
-                                    <input id="input_sex_female" name="sex" type="radio"/>
-                                    <label class="input_sex_label" for="input_sex_female">weibl.</label>
-                                </span>
-                                <br/>
-
-                                <label class="form_label" for="input_birth_date">Geburtstag:</label>
-                                <input id="input_birth_date" type="text" class="info_input" placeholder="T.M.JJJJ"/>
-                                <br/>
-
-                                <label class="form_label " for="input_death_date">Todestag:</label>
-                                <input id="input_death_date" type="text" class="info_input" placeholder="T.M.JJJJ"/>
-                                <br/>
-
-                                <input id="infobox_cancel" class="form_button" type="button" value="Abbrechen"/>
-                                <input id="infobox_submit" class="form_button" type="button" value="Speichern"/>
+                                    <label class="inputLabel " for="inputDeathDate">Todestag:</label>
+                                    <input id="inputDeathDate" type="text" class="infoInput" placeholder="T.M.JJJJ"/>
+                                    <br/>
+                                </div>
+                                <input id="infoboxCancel" class="formButton" type="button" value="Abbrechen"/>
+                                <input id="infoboxSubmit" class="formButton" type="button" value="Speichern"/>
                             </fieldset>
                         </form>
                     </div>
-                    <div id="infobox_background"/>
+                    <div id="infoboxBackground"/>
                 </div>
 
                 <div id="bodydiv">
@@ -59,7 +64,7 @@
                     <!-- Header -->
                     <header>
                         <a href="index.html">
-                            <img id="logo_small" src="media/img/Familytree_small.png" width="200"
+                            <img id="logoSmall" src="media/img/FamilytreeSmall.png" width="200"
                                  alt="das Logo mit einem Baum und einer kleinen Familie"/>
                         </a>
                     </header>
@@ -67,14 +72,14 @@
                     <!-- Navbar -->
                     <nav>
                         <ul id="menu">
-                            <li class="menu_item">
-                                <a class="menu_link" href="home.html">Home</a>
+                            <li class="menuItem">
+                                <a class="menuLink" href="home.html">Home</a>
                             </li>
-                            <li class="menu_item">
-                                <a id="menu_link_selected" href="familytree.xml">Der Stammbaum</a>
+                            <li class="menuItem">
+                                <a id="menuLinkSelected" href="familytree.xml">Der Stammbaum</a>
                             </li>
-                            <li class="menu_item">
-                                <a class="menu_link" href="imprint.html">Impressum</a>
+                            <li class="menuItem">
+                                <a class="menuLink" href="imprint.html">Impressum</a>
                             </li>
                         </ul>
                     </nav>
@@ -83,7 +88,7 @@
                     <main>
                         <!-- Familytree -->
                         <h1>Stammbaum</h1>
-                        <div id="familytree_div">
+                        <div id="familytreeDiv">
                             <xsl:call-template name="tree">
                                 <xsl:with-param name="xpath" select="/familytree"/>
                             </xsl:call-template>
@@ -100,7 +105,7 @@
         <ul class="familytree">
             <xsl:for-each select="$xpath/child::person">
                 <li class="familymember">
-                    <xsl:call-template name="display_person"/>
+                    <xsl:call-template name="displayPerson"/>
                     <!-- recursive select -->
                     <xsl:if test="child::person">
                         <xsl:call-template name="tree">
@@ -113,12 +118,12 @@
 
     </xsl:template>
 
-    <xsl:template name="display_person">
+    <xsl:template name="displayPerson">
         <div class="member">
             <xsl:attribute name="data-pid">
                 <xsl:value-of select="@pid"/>
             </xsl:attribute>
-            <xsl:call-template name="display_information">
+            <xsl:call-template name="displayInformation">
                 <xsl:with-param name="xpath" select="."/>
             </xsl:call-template>
             <xsl:if test="child::inlaw">
@@ -126,7 +131,7 @@
                     <xsl:attribute name="data-pid">
                         <xsl:value-of select="child::inlaw/@pid"/>
                     </xsl:attribute>
-                    <xsl:call-template name="display_information">
+                    <xsl:call-template name="displayInformation">
                         <xsl:with-param name="xpath" select="child::inlaw"/>
                     </xsl:call-template>
                 </span>
@@ -134,7 +139,7 @@
         </div>
     </xsl:template>
 
-    <xsl:template name="display_information">
+    <xsl:template name="displayInformation">
         <xsl:param name="xpath"/>
         <span class="space">
             <xsl:value-of select="$xpath/@forename"/>
@@ -147,10 +152,10 @@
         </span>
         <br/>
         <span class="space">
-            <xsl:value-of select="$xpath/@birth_date"/>
+            <xsl:value-of select="$xpath/@birthDate"/>
         </span>
         <span class="space">
-            <xsl:value-of select="$xpath/@death_date"/>
+            <xsl:value-of select="$xpath/@deathDate"/>
         </span>
 
     </xsl:template>

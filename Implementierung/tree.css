@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 
-#familytree_div {
+#familytreeDiv {
 	 width: 100%;
 	overflow:auto;
 	white-space:nowrap;
@@ -92,17 +92,13 @@
 
 
 
-
-
-
-
-
 div.member {
 	display: inline-block;
     margin: 8pt;
 	margin-bottom: 0;
     padding: 2pt;
     border: 1pt solid black;
+    cursor: pointer;
 }
 
 .inlaw {

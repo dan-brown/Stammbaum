@@ -4,32 +4,32 @@
 <fieldset>
     <legend>Personeninformation</legend>
 
-    <label for="input_forename">Vorname:</label>
-    <input id="input_forename" type="tex" class="info_input"/>
-    <span id="label_forename" class="info_display"/>
+    <label for="inputForename">Vorname:</label>
+    <input id="inputForename" type="tex" class="infoInput"/>
+    <span id="labelForename" class="infoDisplay"/>
     <br/>
 
     <label for="">Nachname:</label>
-    <input id="input_surname" type="tex" class="info_input"/>
-    <span id="label_surname" class="info_display"/>
+    <input id="inputSurname" type="tex" class="infoInput"/>
+    <span id="labelSurname" class="infoDisplay"/>
     <br/>
 
-    <label for="input_sex">Geschlecht:</label>
-    <span id="input_sex" class="info_input">
-        <input id="radio_male" name="sex" type="radio"/>
-        <input id="radio_female" name="sex" type="radio"/>
+    <label for="inputSex">Geschlecht:</label>
+    <span id="inputSex" class="infoInput">
+        <input id="radioMale" name="sex" type="radio"/>
+        <input id="radioFemale" name="sex" type="radio"/>
     </span>
-    <span id="label_sex" class="info_display"/>
+    <span id="labelSex" class="infoDisplay"/>
     <br/>
 
-    <label for="input_birthdate">Geburtstag:</label>
-    <input id="input_birthdate" type="date" class="info_input"/>
-    <span id="label_birthdate" class="info_display"/>
+    <label for="inputBirthdate">Geburtstag:</label>
+    <input id="inputBirthdate" type="date" class="infoInput"/>
+    <span id="labelBirthdate" class="infoDisplay"/>
     <br/>
 
-    <label for="input_deathdate">Todestag:</label>
-    <input id="input_deathdate" type="date" class="info_input"/>
-    <span id="label_deathdate" class="info_display"/>
+    <label for="inputDeathdate">Todestag:</label>
+    <input id="inputDeathdate" type="date" class="infoInput"/>
+    <span id="labelDeathdate" class="infoDisplay"/>
 </fieldset>
 
 ######
@@ -37,18 +37,18 @@
 ######
 var inputs;
 var displays;
-var display__forename;
-var display__surname;
-var display__sex;
-var display__birth_date;
-var display__death_date;
+var displayForename;
+var displaySurname;
+var displaySex;
+var displayBirthDate;
+var displayDeathDate;
 
 function init() {
-    displays = document.getElementsByClassName("info_display");
+    displays = document.getElementsByClassName("infoDisplay");
     for(var i = 0; i < displays.length; i++)
             displays.item(i).addEventListener("dblclick", function(){showInput(i)});
 
-    inputs = document.getElementsByClassName("info_input");
+    inputs = document.getElementsByClassName("infoInput");
     for(var i = 0; i < inputs.length; i++) {
             inputs.item(i).addEventListener("blur", function(){hideInput(i)});
             inputs.item(i).blur();

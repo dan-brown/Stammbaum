@@ -1,39 +1,24 @@
-// XML Objects
-var xml;
-var persons;
-var inlaws;
-var person;
-var person_backup;
-
-var request;
-
-
-//Global settings
-var shown;
-
-
 $(window).load(init);
 function init(){
     request = new XMLHttpRequest();
-    request.onreadystatechange = request_onreadystatechange;
+    request.onreadystatechange = requestOnReadyStateChange;
     updateXML();
 
     $(document).keydown(function(e){if (shown && e.keyCode == 27) cancelInfobox();});
-    $("#infobox_submit").click(submit);
-    $("#infobox_background").click(cancelInfobox);
-    $("#infobox_cancel").click(cancelInfobox);
+    $("#infoboxSubmit").click(submit);
+    $("#infoboxBackground").click(cancelInfobox);
+    $("#infoboxCancel").click(cancelInfobox);
     closeInfobox();
 
     $(".member").click(showInfobox);
     $(".inlaw").click(showInfobox);
 }
 
-
 function updateXML(){
     request.open("GET", "familytree.xml");
     request.send();
 }
-function request_onreadystatechange() {
+function requestOnReadyStateChange() {
     if (request.readyState!=4) return;
     if (request.status != 200) {
         alert("Fehler bei der Verbindung zum Server!");
@@ -45,18 +30,18 @@ function request_onreadystatechange() {
 }
 
 function cancelInfobox() {
-    $(person).attr("forename", $(person_backup).attr("forename"))
-    $(person).attr("surname", $(person_backup).attr("surname"))
-    $(person).attr("sex", $(person_backup).attr("sex"))
-    $(person).attr("birth_date", $(person_backup).attr("birth_date"))
-    $(person).attr("death_date", $(person_backup).attr("death_date"))
+    person.setAttribute("forename", personBackup.getAttribute("forename"));
+    person.setAttribute("surname", personBackup.getAttribute("surname"));
+    person.setAttribute("sex", personBackup.getAttribute("sex"));
+    person.setAttribute("birthDate", personBackup.getAttribute("birthDate"));
+    person.setAttribute("deathDate", personBackup.getAttribute("deathDate"));
     closeInfobox();
 }
 
 function closeInfobox(){
     shown = false;
     $("#infobox").hide();
-    $(".info_input").removeClass("invalid");
+    $(".infoInput").removeClass("invalidInput");
 }
 
 function showInfobox(){
@@ -70,70 +55,80 @@ function showInfobox(){
 
 function updatePerson(pid) {
     for ( var i = 0; i < persons.length + inlaws.length; i++ ) {
-        var person_i = ( i < persons.length ) ? persons.item(i) : inlaws.item(i-persons.length);
-        if($(person_i).attr("pid") === pid) {
-            person = person_i;
-            person_backup = person_i;
-            break;
+        var personI = ( i < persons.length ) ? persons.item(i) : inlaws.item(i-persons.length);
+        if(personI.getAttribute("pid") === pid) {//############HIER ENTSTEHT DER "nicht wohlgeformt"-FEHLER########
+            person = personI;
+            personBackup = person.cloneNode(false);
+            return;
         }
     }
 }
 
 function updateInfobox(){
-    $("#input_forename").val($(person).attr("forename"));
-    $("#input_surname").val($(person).attr("surname"));
-    if($(person).attr("sex") === "M") $("#input_sex_male").prop("checked","checked");
-    else $("#input_sex_female").prop("checked","checked");
-    $("#input_birth_date").val(toLocaleDateString($(person).attr("birth_date")));
-    $("#input_death_date").val(toLocaleDateString($(person).attr("death_date")));
+    $("#inputForename").val(person.getAttribute("forename"));
+    $("#inputSurname").val(person.getAttribute("surname"));
+    if(person.getAttribute("sex") === "M") $("#inputSexMale").prop("checked","checked");
+    else $("#inputSexFemale").prop("checked","checked");
+    $("#inputBirthDate").val(toLocaleDateString(person.getAttribute("birthDate")));
+    $("#inputDeathDate").val(toLocaleDateString(person.getAttribute("deathDate")));
 }
 
-function toLocaleDateString(iso_text){
-    if(iso_text === "") return iso_text;
-    else return new Date(iso_text).toLocaleDateString();
+function toLocaleDateString(isoText){
+    if(isoText === "") return isoText;
+    else return new Date(isoText).toLocaleDateString();
 }
 
+function toIsoDateString(localeText) {
+    if(localeText === "") return localeText;
+
+    var comps = localeText.split(".");
+    var d = parseInt(comps[0], 10);
+    var m = parseInt(comps[1], 10);
+    var y = parseInt(comps[2], 10);
+
+    return new Date(y,m-1,d).toISOString();
+}
 
 function submit(){
-    var forename    = $("#input_forename").val();
-    var surname     = $("#input_surname").val();
-    var sex         = $("#input_sex_male").prop("checked") ? "M" : "F";
-    var birth_date  = $("#input_birth_date").val();
-    var death_date  = $("#input_death_date").val();
+    var forename = $("#inputForename").val();
+    var surname = $("#inputSurname").val();
+    var sex = $("#inputSexMale").prop("checked") ? "M" : "F";
+    var birthDate = $("#inputBirthDate").val();
+    var deathDate = $("#inputDeathDate").val();
 
-    if (!validate(forename, birth_date, death_date)){
-        person = person_backup;
-        return;
-    }
+    if (!validate(forename, birthDate, deathDate)) return;
 
-    $(person).attr("forename", forename);
-    $(person).attr("surname", surname);
-    $(person).attr("sex", sex);
-    $(person).attr("birth_date", birth_date);
-    $(person).attr("death_date", death_date);
+    person.setAttribute("forename", forename);
+    person.setAttribute("surname", surname);
+    person.setAttribute("sex", sex);
+    person.setAttribute("birthDate", toIsoDateString(birthDate));
+    person.setAttribute("deathDate", toIsoDateString(deathDate));
+
+    updateInfobox();
+    closeInfobox();
 }
 
-function validate(forename, birth_date, death_date){
+function validate(forename, birthDate, deathDate){
     var valid = true;
     if(forename === ""){
-        $(input_forename).addClass("invalid");
+        $("#inputForename").addClass("invalidInput");
         valid = false;
     }
-    if(!validateDate(birth_date)){
-        $("#input_birth_date").addClass("invalid");
+    if(!validateDate(birthDate)){
+        $("#inputBirthDate").addClass("invalidInput");
         valid = false;
     }
-    if(!validateDate(death_date)){
-        $(input_birth_date).addClass("invalid");
+    if(!validateDate(deathDate)){
+        $("#inputDeathDate").addClass("invalidInput");
         valid = false;
     }
     return valid;
 }
 
-function validateDate(locale_text) {
-    if(locale_text === "") return true;
+function validateDate(localeText) {
+    if(localeText === "") return true;
 
-    var comps = locale_text.split(".");
+    var comps = localeText.split(".");
     var d = parseInt(comps[0], 10);
     var m = parseInt(comps[1], 10);
     var y = parseInt(comps[2], 10);
