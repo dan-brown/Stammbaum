@@ -35,8 +35,8 @@
     background-color: blue;
 }
 
-.info_input.invalid {
-    background-color: red;
+.invalid {
+    background-color: orange;
 }
 
 #infobox_submit {
