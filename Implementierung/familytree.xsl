@@ -10,6 +10,8 @@
                 <link type="text/css" rel="stylesheet" href="tree.css"/>
                 <link type="text/css" rel="stylesheet" href="infobox.css"/>
                 <link rel="icon" type="image/png" href="media/img/favicon.png"/>
+                <script src="jquery.js"/>
+                <script src="filesaver.js"/>
                 <script src="familytree.js"/>
             </head>
             <body>
@@ -19,62 +21,34 @@
                             <fieldset>
                                 <legend>Personeninformation</legend>
 
-                                <label class="categorylabel" for="input_forename">Vorname:</label>
-                                <input id="input_forename" type="tex" class="info_input"/>
+                                <label class="form_label" for="input_forename">Vorname:</label>
+                                <input id="input_forename" type="tex" class="info_input" placeholder="Vorname"/>
                                 <br/>
 
-                                <label class="categorylabel" for="input_surname">Nachname:</label>
-                                <input id="input_surname" type="tex" class="info_input"/>
+                                <label class="form_label" for="input_surname">Nachname:</label>
+                                <input id="input_surname" type="tex" class="info_input" placeholder="Nachname"/>
                                 <br/>
 
-                                <label class="categorylabel">Geschlecht:</label>
+                                <label class="form_label">Geschlecht:</label>
                                 <span class="info_input">
                                     <input id="input_sex_male" name="sex" type="radio"/>
-                                    <label for="input_sex_male">männl.</label>
+                                    <label class="input_sex_label" for="input_sex_male">männl.</label>
                                     <input id="input_sex_female" name="sex" type="radio"/>
-                                    <label for="input_sex_female">weibl.</label>
+                                    <label class="input_sex_label" for="input_sex_female">weibl.</label>
                                 </span>
                                 <br/>
 
-                                <label class="categorylabel" for="input_birth_date">Geburtstag:</label>
-                                <input id="input_birth_date" type="text" class="info_input"/>
+                                <label class="form_label" for="input_birth_date">Geburtstag:</label>
+                                <input id="input_birth_date" type="text" class="info_input" placeholder="T.M.JJJJ"/>
                                 <br/>
 
-                                <label class="categorylabel " for="input_death_date">Todestag:</label>
-                                <input id="input_death_date" type="text" class="info_input"/>
+                                <label class="form_label " for="input_death_date">Todestag:</label>
+                                <input id="input_death_date" type="text" class="info_input" placeholder="T.M.JJJJ"/>
+                                <br/>
+
+                                <input id="infobox_cancel" class="form_button" type="button" value="Abbrechen"/>
+                                <input id="infobox_submit" class="form_button" type="button" value="Speichern"/>
                             </fieldset>
-                            <!-- nice to have
-                            <fieldset>
-                                <legend>Personeninformation</legend>
-
-                                <label for="input_forename">Vorname:</label>
-                                <input id="input_forename" type="tex" class="info_input"/>
-                                <span id="label_forename" class="info_display"/>
-                                <br/>
-
-                                <label for="">Nachname:</label>
-                                <input id="input_surname" type="tex" class="info_input"/>
-                                <span id="label_surname" class="info_display"/>
-                                <br/>
-
-                                <label for="input_sex">Geschlecht:</label>
-                                <span id="input_sex" class="info_input">
-                                    <input id="radio_male" name="sex" type="radio"/>
-                                    <input id="radio_female" name="sex" type="radio"/>
-                                </span>
-                                <span id="label_sex" class="info_display"/>
-                                <br/>
-
-                                <label for="input_birthdate">Geburtstag:</label>
-                                <input id="input_birthdate" type="date" class="info_input"/>
-                                <span id="label_birthdate" class="info_display"/>
-                                <br/>
-
-                                <label for="input_deathdate">Todestag:</label>
-                                <input id="input_deathdate" type="date" class="info_input"/>
-                                <span id="label_deathdate" class="info_display"/>
-                            </fieldset>
-                            -->
                         </form>
                     </div>
                     <div id="infobox_background"/>

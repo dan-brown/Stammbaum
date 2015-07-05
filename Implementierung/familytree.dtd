@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-        <!ENTITY % person_attributes "
-            pid ID #REQUIRED
-            forename CDATA #REQUIRED
-            surname CDATA #REQUIRED
-            sex (M|F) #REQUIRED
-            birth_date CDATA #REQUIRED
-            death_date CDATA #REQUIRED">
-
         <!ELEMENT familytree (person)>
 
         <!ELEMENT person (inlaw?, person*)>
-        <!ATTLIST person  &person_attributes;>
+        <!ATTLIST person
+                pid ID #REQUIRED
+                forename CDATA #REQUIRED
+                surname CDATA #REQUIRED
+                sex (M|F) #REQUIRED
+                birth_date CDATA #REQUIRED
+                death_date CDATA #REQUIRED>
 
         <!ELEMENT inlaw EMPTY>
-        <!ATTLIST inlaw  &person_attributes;>
+        <!ATTLIST inlaw pid ID #REQUIRED
+                forename CDATA #REQUIRED
+                surname CDATA #REQUIRED
+                sex (M|F) #REQUIRED
+                birth_date CDATA #REQUIRED
+                death_date CDATA #REQUIRED>
 

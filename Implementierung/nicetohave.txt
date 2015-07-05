@@ -1,0 +1,67 @@
+#######
+# XSL #
+#######
+<fieldset>
+    <legend>Personeninformation</legend>
+
+    <label for="input_forename">Vorname:</label>
+    <input id="input_forename" type="tex" class="info_input"/>
+    <span id="label_forename" class="info_display"/>
+    <br/>
+
+    <label for="">Nachname:</label>
+    <input id="input_surname" type="tex" class="info_input"/>
+    <span id="label_surname" class="info_display"/>
+    <br/>
+
+    <label for="input_sex">Geschlecht:</label>
+    <span id="input_sex" class="info_input">
+        <input id="radio_male" name="sex" type="radio"/>
+        <input id="radio_female" name="sex" type="radio"/>
+    </span>
+    <span id="label_sex" class="info_display"/>
+    <br/>
+
+    <label for="input_birthdate">Geburtstag:</label>
+    <input id="input_birthdate" type="date" class="info_input"/>
+    <span id="label_birthdate" class="info_display"/>
+    <br/>
+
+    <label for="input_deathdate">Todestag:</label>
+    <input id="input_deathdate" type="date" class="info_input"/>
+    <span id="label_deathdate" class="info_display"/>
+</fieldset>
+
+######
+# JS #
+######
+var inputs;
+var displays;
+var display__forename;
+var display__surname;
+var display__sex;
+var display__birth_date;
+var display__death_date;
+
+function init() {
+    displays = document.getElementsByClassName("info_display");
+    for(var i = 0; i < displays.length; i++)
+            displays.item(i).addEventListener("dblclick", function(){showInput(i)});
+
+    inputs = document.getElementsByClassName("info_input");
+    for(var i = 0; i < inputs.length; i++) {
+            inputs.item(i).addEventListener("blur", function(){hideInput(i)});
+            inputs.item(i).blur();
+    }
+}
+
+function showInput(i){
+    inputs.item(i).style.display = "initial";
+    displays.item(i).item(i).style.display = "none";
+    if(inputs.item(i).type == "text") inputs.item(i).select();
+}
+
+function hideInput(i){
+    inputs.item(i).style.display = "none";
+    displays.item(i).style.display = "initial";
+}

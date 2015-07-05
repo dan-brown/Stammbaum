@@ -24,21 +24,28 @@
     transform: translate(-50%, 0%);
 }
 
-.filler {
-    background: blue;
-    display: table-cell;
-}
-
 .categorylabel {
     display: inline-block;
     width: 100px;
 }​
 
 .info_input {
-    width: 100px;
+    width: 1000px;
     color: red;
+    background-color: blue;
 }
 
+.info_input.invalid {
+    background-color: red;
+}
+
+#infobox_submit {
+    float: right;
+}
+
+.form_button {
+    margin: 5px 0px 0px;
+}
 .member {
     cursor: pointer;
 }

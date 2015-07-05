@@ -2,146 +2,140 @@
 var xml;
 var persons;
 var inlaws;
+var person;
+
 var request;
-
-// HTML elements
-var infobox;
-
-var input_forename;
-var input_surname;
-var input_sex_male;
-var input_sex_female;
-var input_birth_date;
-var input_death_date;
 
 
 //Global settings
 var shown;
-var pid;
 
 
-window.onload = function(){ init();}
-
-function dostuff(e){
-    console.log(e.toString);
-}
-
+$(window).load(init);
 function init(){
     request = new XMLHttpRequest();
     request.onreadystatechange = request_onreadystatechange;
     updateXML();
 
-    infobox = document.getElementById("infobox");
+    $(document).keydown(function(e){if (shown && e.keyCode == 27) hideInfobox();});
+    $("#infobox_submit").click(submit);
+    $("#infobox_background").click(hideInfobox);
+    $("#infobox_cancel").click(hideInfobox);
+    hideInfobox();
 
-    document.getElementById("infobox_background").addEventListener("click", clickedBackground);
-    clickedBackground();
-
-    input_forename = document.getElementById("input_forename");
-    input_surname = document.getElementById("input_surname");
-    input_sex_male = document.getElementById("input_sex_male");
-    input_sex_female = document.getElementById("input_sex_female");
-    input_birth_date = document.getElementById("input_birth_date");
-    input_death_date = document.getElementById("input_death_date");
-
-    var members = document.getElementsByClassName("member");
-    for (i = 0; i < members.length; i++)
-        members.item(i).addEventListener("click", clickedActivator);
-
-    var inlaws = document.getElementsByClassName("inlaw");
-    for (i = 0; i < inlaws.length; i++)
-        inlaws.item(i).addEventListener("click", clickedActivator);
-
+    $(".member").click(showInfobox);
+    $(".inlaw").click(showInfobox);
 }
 
+
+function updateXML(){
+    request.open("GET", "familytree.xml");
+    request.send();
+}
 function request_onreadystatechange() {
     if (request.readyState!=4) return;
     if (request.status != 200) {
         alert("Fehler bei der Verbindung zum Server!");
         return;
     }
-    xml = new DOMParser().parseFromString(request.responseText, "text/xml");
+    xml = request.responseXML;
     persons = xml.getElementsByTagName("person");
     inlaws = xml.getElementsByTagName("inlaw");
 }
 
-function updateXML(){
-    request.open("GET", "familytree.xml");
-    request.send();
-}
-
-function clickedBackground(){
-    infobox.style.display = "none";
+function hideInfobox(){
     shown = false;
+    $("#infobox").hide();
 }
 
-function clickedActivator(){
+function showInfobox(){
     if(shown) return;
     shown = true;
-    pid = this.getAttribute("data-pid");
-    updateInfoBox();
-    infobox.style.display = "block";
+    var pid = $(this).attr("data-pid");
+    updatePerson(pid);
+    updateInfobox();
+    $("#infobox").show();
 }
 
-function updateInfoBox(){
-    var selectedPerson = findMemberByPID();
-    var sex = selectedPerson.getAttribute("sex");
-    var birth_date = selectedPerson.getAttribute("birth_date");
-    var death_date = selectedPerson.getAttribute("death_date");
-
-    input_forename.value = selectedPerson.getAttribute("forename");
-    input_surname.value = selectedPerson.getAttribute("surname");
-    if(sex == "M")  input_sex_male.checked = true;
-    else            input_sex_female.checked = true;
-    input_birth_date.value = (birth_date != null) ? toLocaleDateString(birth_date) : "";
-    input_death_date.value = (death_date != null) ? toLocaleDateString(death_date) : "";
-}
-
-function findMemberByPID() {
+function updatePerson(pid) {
     for ( var i = 0; i < persons.length + inlaws.length; i++ ) {
-        var possiblePerson = ( i < persons.length ) ? persons.item(i) : inlaws.item(i-persons.length);
-        if(possiblePerson.getAttribute("pid") == pid)
-            return possiblePerson;
+        var cur = ( i < persons.length ) ? persons.item(i) : inlaws.item(i-persons.length);
+        if($(cur).attr("pid") == pid) {
+            person = cur;
+            break;
+        }
     }
 }
 
-function toLocaleDateString(date){
-    return new Date(date).toLocaleDateString();
+function updateInfobox(){
+    $("#input_forename").value = $(person).attr("forename");
+    $("#input_surname").value = $(person).attr("surname");
+    if($(person).attr("sex") === "M") $("#input_sex_male").checked = true;
+    else $("#input_sex_female").checked = true;
+    $("#input_birth_date").value = toLocaleDateString($(person).attr("birth_date"));
+    $("#input_death_date").value = toLocaleDateString($(person).attr("death_date"));
 }
 
-function checkDates(){
-
+function toLocaleDateString(iso_text){
+    if(iso_text === "") return iso_text;
+    else return new Date(iso_text).toLocaleDateString();
 }
 
-/* nice to have
-var inputs;
-var displays;
-var display__forename;
-var display__surname;
-var display__sex;
-var display__birth_date;
-var display__death_date;
 
+function submit(){
+    var forename    = $("#input_forename").value;
+    var surname     = $("input_surname").value;
+    var sex         = $("#input_sex_male").checked ? "M" : "F";
+    var birth_date  = $("#input_birth_date").value;
+    var death_date  = $("#input_death_date").value;
 
-zu init(): {
-    displays = document.getElementsByClassName("info_display");
-    for(var i = 0; i < displays.length; i++)
-            displays.item(i).addEventListener("dblclick", function(){showInput(i)});
+    if (!validate(forename, birth_date, death_date)) return;
 
-    inputs = document.getElementsByClassName("info_input");
-    for(var i = 0; i < inputs.length; i++) {
-            inputs.item(i).addEventListener("blur", function(){hideInput(i)});
-            inputs.item(i).blur();
+    $(person).attr("forename", forename);
+    $(person).attr("surname", surname);
+    $(person).attr("sex", sex);
+    $(person).attr("birth_date", birth_date);
+    $(person).attr("death_date", death_date);
+
+    saveXML();
+}
+
+function validate(forename, birth_date, death_date){
+    var valid = true;
+    if(forename === ""){
+        $(input_forename).addClass("invalid");
+        valid = false;
+        console.log("invalid: empty forename");
     }
+    console.log("bd");
+    if(!validateDate(birth_date)){
+        $("#input_birth_date").addClass("invalid");
+        valid = false;
+        console.log("invalid birth_date: "+birth_date);
+    }
+    if(!validateDate(death_date)){
+        $(input_birth_date).addClass("invalid");
+        valid = false;
+        console.log("invalid death_date: "+death_date);
+    }
+    console.log(valid);
+    return valid;
 }
 
-function showInput(i){
-    inputs.item(i).style.display = "initial";
-    displays.item(i).item(i).style.display = "none";
-    if(inputs.item(i).type == "text") inputs.item(i).select();
-}
+function validateDate(locale_text) {
+    if(locale_text === "") return true;
+    console.log(locale_text);
 
-function hideInput(i){
-    inputs.item(i).style.display = "none";
-    displays.item(i).style.display = "initial";
+    var comps = locale_text.split(".");
+    var d = parseInt(comps[0], 10);
+    var m = parseInt(comps[1], 10);
+    var y = parseInt(comps[2], 10);
+    console.log("d: " + d + ", m: " + m + ", y: " + y);
+
+    var date = new Date(y, m - 1, d);
+    console.log("date.y:"+date.getFullYear()+" | txt:"+y);
+    console.log("date.m: "+date.getMonth()+" | txt:"+m);
+    console.log("date.d: "+date.getDate()+" | txt:"+d);
+
+    return date.getFullYear() == y && date.getMonth() + 1 == m && date.getDate() == d;
 }
-*/
