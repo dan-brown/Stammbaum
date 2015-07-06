@@ -89,9 +89,11 @@
                         <!-- Familytree -->
                         <h1>Stammbaum</h1>
                         <div id="familytreeDiv">
+                            <iframe id="tree_iframe">
                             <xsl:call-template name="tree">
                                 <xsl:with-param name="xpath" select="/familytree"/>
                             </xsl:call-template>
+                            </iframe>
                         </div>
                     </main>
                 </div>
