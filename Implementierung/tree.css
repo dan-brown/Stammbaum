@@ -1,5 +1,9 @@
 @CHARSET "ISO-8859-1";
 
+#tree_iframe {
+	width:400%;
+	border:0;
+}
 
 #familytreeDiv {
 	 width: 100%;
