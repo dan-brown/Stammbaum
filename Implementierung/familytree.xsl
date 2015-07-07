@@ -89,7 +89,7 @@
                         <!-- Familytree -->
                         <h1>Stammbaum</h1>
                         <div id="familytreeDiv">
-                            <iframe id="tree_iframe">
+                            <iframe id="tree_iframe" src="familytree.xml">
                             <xsl:call-template name="tree">
                                 <xsl:with-param name="xpath" select="/familytree"/>
                             </xsl:call-template>
@@ -103,7 +103,6 @@
 
     <xsl:template name="tree">
         <xsl:param name="xpath"/>
-
         <ul class="familytree">
             <xsl:for-each select="$xpath/child::person">
                 <li class="familymember">
