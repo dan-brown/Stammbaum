@@ -102,6 +102,7 @@ function submit(){
 
     updateInfobox();
     closeInfobox();
+    xml.save("test.xml");
 }
 
 function validate(forename, birthDate, deathDate){

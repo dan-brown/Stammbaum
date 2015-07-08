@@ -88,9 +88,9 @@
                     <main>
                         <!-- Familytree -->
                         <h1>Stammbaum</h1>
-                            <xsl:call-template name="tree">
-                                <xsl:with-param name="xpath" select="/familytree"/>
-                            </xsl:call-template>
+                        <xsl:call-template name="tree">
+                            <xsl:with-param name="xpath" select="/familytree"/>
+                        </xsl:call-template>
                     </main>
                 </div>
             </body>
@@ -144,15 +144,6 @@
         <span class="space">
             <xsl:value-of select="$xpath/@surname"/>
         </span>
-        <span class="space">(<xsl:value-of select="$xpath/@sex"/>)</span>
-        <br/>
-        <span class="space">
-            <xsl:value-of select="$xpath/@birthDate"/>
-        </span>
-        <span class="space">
-            <xsl:value-of select="$xpath/@deathDate"/>
-        </span>
-
     </xsl:template>
 
 </xsl:stylesheet>
