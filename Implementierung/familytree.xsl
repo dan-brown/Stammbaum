@@ -124,6 +124,7 @@
                 <xsl:with-param name="xpath" select="."/>
             </xsl:call-template>
             <xsl:if test="child::inlaw">
+                <img src="media/img/rings.jpg" width="20px"/>
                 <span class="inlaw">
                     <xsl:attribute name="data-pid">
                         <xsl:value-of select="child::inlaw/@pid"/>
