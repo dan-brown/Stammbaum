@@ -29,6 +29,7 @@ main {
 	padding-top:5pt;
     min-height: 50%;
 	background-color: white;
+	overflow:auto;
 }
 
 #imprintContent {
@@ -120,7 +121,7 @@ p{
 #up_down {
     padding: 20pt;
     text-align: center;
-}
+ }
 
 #download {
 	background-color:#3a7bd5;
