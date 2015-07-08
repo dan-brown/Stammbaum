@@ -13,21 +13,18 @@
 	text-align: center;
 	padding-top: 20px;
 	position: relative;
-	padding-bottom: 20pt;
+	padding-bottom: 10pt;
 	
 	transition: all 0.5s;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 
-	
 	white-space:nowrap ;
 	overflow:auto;
-	width: 100%;
 }
 
 .familytree li {
 	display: inline-block;
-    text-align: center;
 	list-style-type: none;
 	position: relative;
 	padding: 10px 5px 0 5px;
@@ -79,7 +76,7 @@
 	-moz-border-radius: 5px 0 0 0;
 }
 
-.familytree ul ul::before{
+.familytree ul::before{
 	content: '';
 	position: absolute; top: 0; left: 50%;
 	border-left: 1px solid black;
@@ -96,6 +93,8 @@ div.member {
     border: 1pt solid black;
     cursor: pointer;
 }
+
+
 
 .inlaw {
 	margin-left:7pt; 
