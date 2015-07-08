@@ -88,11 +88,9 @@
                     <main>
                         <!-- Familytree -->
                         <h1>Stammbaum</h1>
-                        <div id="familytreeDiv">
                             <xsl:call-template name="tree">
                                 <xsl:with-param name="xpath" select="/familytree"/>
                             </xsl:call-template>
-                        </div>
                     </main>
                 </div>
             </body>
