@@ -20,10 +20,6 @@ function updateXML(){
 }
 function requestOnReadyStateChange() {
     if (request.readyState!=4) return;
-    if (request.status != 200) {
-        alert("Fehler bei der Verbindung zum Server!");
-        return;
-    }
     xml = request.responseXML;
     persons = xml.getElementsByTagName("person");
     inlaws = xml.getElementsByTagName("inlaw");
