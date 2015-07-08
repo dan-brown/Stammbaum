@@ -4,7 +4,7 @@
 <familytree>
     <person pid="p0" forename="Opa" surname="Mustermann" sex="M" birthDate="1920-04-04"
             deathDate="2013-06-07">
-        <inlaw pid="p7" forename="Oma" surname="Mustermann" sex="F" birthDate="" deathDate=""/>
+        <inlaw pid="p7" forename="Oma" surname="Mustermann" sex="F" birthDate="" deathDate="2013-06-08"/>
         <person pid="p8" forename="Papa" surname="Mustermann" sex="M" birthDate="" deathDate="">
             <inlaw pid="p9" forename="Mama" surname="Mustermann" sex="F" birthDate="" deathDate=""/>
             <person pid="p10" forename="Daniel" surname="Brown" sex="M" birthDate="1994-09-27" deathDate=""/>

@@ -139,6 +139,9 @@
 
     <xsl:template name="displayInformation">
         <xsl:param name="xpath"/>
+        <xsl:if test="$xpath/@deathDate != ''">
+           <img id="cross" src="media/img/cross.jpg" width="16px"/>
+        </xsl:if>
         <span class="space">
             <xsl:value-of select="$xpath/@forename"/>
         </span>
