@@ -116,3 +116,30 @@ p{
 	position:relative;
 	left:5%;
 }
+
+#up_down {
+    padding: 20pt;
+    text-align: center;
+}
+
+#download {
+	background-color:#3a7bd5;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:12px 31px;
+	text-decoration:none;
+}
+#download:hover {
+	background-color:#00d2ff;
+}
+#download:active {
+	position:relative;
+	top:1px;
+}

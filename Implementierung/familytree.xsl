@@ -91,6 +91,11 @@
                         <xsl:call-template name="tree">
                             <xsl:with-param name="xpath" select="/familytree"/>
                         </xsl:call-template>
+                        
+                        <div id="up_down">
+                          <input type="file"/>
+                          <a id="download" href="familytree.xml">Download</a>
+                        </div>
                     </main>
                 </div>
             </body>
