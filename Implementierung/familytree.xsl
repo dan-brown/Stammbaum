@@ -3,6 +3,7 @@
     <xsl:output method="html" encoding="UTF-8" indent="yes"/>
     <xsl:key name="inlawByPid" match="inlaw" use="@pid"/>
     <xsl:template match="/familytree">
+        <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
             <head>
                 <title>Stammbaum</title>
@@ -91,10 +92,10 @@
                         <xsl:call-template name="tree">
                             <xsl:with-param name="xpath" select="/familytree"/>
                         </xsl:call-template>
-                        
+
                         <div id="up_down">
-                          <input type="file"/>
-                          <a id="download" href="familytree.xml">Download</a>
+                            <input type="file"/>
+                            <a id="download" href="familytree.xml">Download</a>
                         </div>
                     </main>
                 </div>
@@ -129,7 +130,7 @@
                 <xsl:with-param name="xpath" select="."/>
             </xsl:call-template>
             <xsl:if test="child::inlaw">
-                <img src="media/img/rings.jpg" width="20px"/>
+                <img src="media/img/rings.jpg" width="20" alt="engaged"/>
                 <span class="inlaw">
                     <xsl:attribute name="data-pid">
                         <xsl:value-of select="child::inlaw/@pid"/>
@@ -145,7 +146,7 @@
     <xsl:template name="displayInformation">
         <xsl:param name="xpath"/>
         <xsl:if test="$xpath/@deathDate != ''">
-           <img id="cross" src="media/img/cross.jpg" width="16px"/>
+            <img class="cross" src="media/img/cross.jpg" width="16" alt="died"/>
         </xsl:if>
         <span class="space">
             <xsl:value-of select="$xpath/@forename"/>

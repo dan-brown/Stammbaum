@@ -1,4 +1,4 @@
-#cross {
+.cross {
 	position:relative;
 	top:4px;
 }
@@ -9,7 +9,6 @@
 	margin-left: auto;
     margin-right: auto;
     padding: 0;
-    overflow: hidden;
 	text-align: center;
 	padding-top: 20px;
 	position: relative;
@@ -19,7 +18,7 @@
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 	
-	overflow:visible;
+	overflow:auto;
 	white-space:nowrap ;
 }
 
