@@ -146,9 +146,7 @@
         <span class="space">
             <xsl:value-of select="$xpath/@surname"/>
         </span>
-        <span class="space">
-            (<xsl:value-of select="$xpath/@sex"/>)
-        </span>
+        <span class="space">(<xsl:value-of select="$xpath/@sex"/>)</span>
         <br/>
         <span class="space">
             <xsl:value-of select="$xpath/@birthDate"/>

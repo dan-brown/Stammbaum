@@ -1,8 +1,6 @@
 #familytreeDiv {
 	 width: 100%;
 	overflow:auto;
-	white-space:nowrap;
-	padding-bottom: 25pt;
 }
 
 .familytree {
@@ -15,6 +13,7 @@
 	text-align: center;
 	padding-top: 20px;
 	position: relative;
+	padding-bottom: 20pt;
 	
 	transition: all 0.5s;
 	-webkit-transition: all 0.5s;
