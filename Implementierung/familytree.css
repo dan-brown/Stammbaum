@@ -1,74 +1,91 @@
-/*
-	Hintergrund
-*/
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
 body {
-    background: -webkit-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* Chrome 10+, Saf5.1+ */
-    background: -ms-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* IE10 */
-    background: -o-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* Opera 11.10+ */
-    background: linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* W3C */
+    background: linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%);
     font-family: "Arial", Arial, sans-serif;
-    margin:0;
-}
-
-#indexLogo {
-	display:block;
-	width: 55%;
-	margin-left: auto;
-    margin-right: auto;
-}
-
-#bodydiv {
-	width: 60%;
-	margin-left: auto;
-    margin-right: auto;
-    background-color:#aaaaaa;
 }
 
 main {
-	margin-top:20pt;
-	padding-top:5pt;
+    margin-top: 20pt;
+    padding-top: 5pt;
     min-height: 50%;
-	background-color: white;
+    background-color: white;
+    flex: 1 1 auto;
 }
 
-#imprintContent {
+h1 {
+    color: #3a7bd5;
+    position: relative;
+    left: 5%;
+}
+
+h2, h3, h4 {
+    position: relative;
+    left: 5%;
+}
+
+h5 {
+    position: relative;
+    left: 5%;
+    padding-top: 25pt;
+    font-size: 110%;
+}
+
+p {
+    position: relative;
+    left: 5%;
+}
+
+#index-logo {
+    display: block;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#body-div {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #aaaaaa;
+}
+
+#imprint-content {
     padding-bottom: 25pt;
 }
 
-/*
-	Menu Bar
-*/	
-#logoSmall {
-	margin-left:50pt;
+#logo-small {
+    margin-left: 50pt;
 }
 
 #menu {
-	width:90%;
+    width: 90%;
     list-style-type: none;
-    margin: 0;
-	margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     padding: 0;
     overflow: hidden;
 }
 
-.menuItem {
-	width: 33%;
+.menu-item {
+    width: 33%;
     float: left;
 }
 
-.menuLink:link, .menuLink:visited {
+.menu-link:link, .menu-link:visited {
     display: block;
     font-weight: bold;
     color: #3a7bd5;
-    background-color: #E8E8E8 ;
+    background-color: #E8E8E8;
     text-align: center;
     padding: 4px;
     text-decoration: none;
     text-transform: uppercase;
 }
 
-#menuLinkSelected:link, #menuLinkSelected:visited {
+#menu-link-current:link, #menu-link-current:visited {
     display: block;
     font-weight: bold;
     text-align: center;
@@ -76,70 +93,42 @@ main {
     text-decoration: none;
     text-transform: uppercase;
     background-color: #3a7bd5;
-    color:white;
+    color: white;
 }
 
-.menuLink:hover, .menuLink:active {
+.menu-link:hover, .menu-link:active {
     background-color: #3a7bd5;
-    color:white;
+    color: white;
 }
 
-/*
-	Main
-*/
-#logoHome {
-	display:block;
-	width:90%;
-	margin-right: auto;
-	margin-left: auto;
+#logo-home {
+    display: block;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-h1{
-    color: #3a7bd5;
-	position:relative;
-	left:5%;
-}
-
-h2,h3,h4{
-	position:relative;
-	left:5%;
-} 
-
-h5{
-	position:relative;
-	left:5%;
-	padding-top: 25pt;
-	font-size:110%;
-}
-
-p{
-	position:relative;
-	left:5%;
-}
-
-#up_down {
+#input-output {
     padding: 20pt;
     text-align: center;
- }
+}
 
-#download {
-	background-color:#3a7bd5;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:0;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	padding:12px 31px;
-	text-decoration:none;
+#download-button {
+    background-color: #3a7bd5;
+    border-radius: 6px;
+    border: 0;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    padding: 12px 31px;
 }
-#download:hover {
-	background-color:#00d2ff;
+
+#download-button:hover {
+    background-color: #00d2ff;
 }
-#download:active {
-	position:relative;
-	top:1px;
+
+#download-button:active {
+    position: relative;
+    top: 1px;
 }
