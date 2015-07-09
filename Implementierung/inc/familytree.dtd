@@ -7,14 +7,13 @@
                 forename CDATA #REQUIRED
                 surname CDATA #REQUIRED
                 sex (M|F) #REQUIRED
-                birthDate CDATA #REQUIRED
-                deathDate CDATA #REQUIRED>
+                birth-date CDATA #REQUIRED
+                death-date CDATA #REQUIRED>
 
         <!ELEMENT inlaw EMPTY>
         <!ATTLIST inlaw pid ID #REQUIRED
                 forename CDATA #REQUIRED
                 surname CDATA #REQUIRED
                 sex (M|F) #REQUIRED
-                birthDate CDATA #REQUIRED
-                deathDate CDATA #REQUIRED>
-
+                birth-date CDATA #REQUIRED
+                death-date CDATA #REQUIRED>

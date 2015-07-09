@@ -153,7 +153,7 @@
 
     <xsl:template name="display-information">
         <xsl:param name="xpath"/>
-        <xsl:if test="$xpath/@deathDate != ''">
+        <xsl:if test="$xpath/@death-date != ''">
             <img class="cross" src="media/img/cross.jpg" width="16" alt="died"/>
         </xsl:if>
         <span class="space display-forename">

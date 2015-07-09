@@ -39,7 +39,7 @@ function keylogger(e) {
 }
 
 function getXML() {
-    request.open("GET", "familytree.xml");
+    request.open("GET", "familytree.fam");
     request.send();
 }
 function requestOnReadyStateChange() {
@@ -68,8 +68,8 @@ function cancelInfobox() {
     currentXMLMember.setAttribute("forename", memberBackup.getAttribute("forename"));
     currentXMLMember.setAttribute("surname", memberBackup.getAttribute("surname"));
     currentXMLMember.setAttribute("sex", memberBackup.getAttribute("sex"));
-    currentXMLMember.setAttribute("birthDate", memberBackup.getAttribute("birthDate"));
-    currentXMLMember.setAttribute("deathDate", memberBackup.getAttribute("deathDate"));
+    currentXMLMember.setAttribute("birth-date", memberBackup.getAttribute("birth-date"));
+    currentXMLMember.setAttribute("death-date", memberBackup.getAttribute("death-date"));
     closeInfobox();
 }
 
@@ -95,9 +95,8 @@ function updateInfobox() {
     $("#input-surname").val(currentXMLMember.getAttribute("surname"));
     if (currentXMLMember.getAttribute("sex") === "M") $("#input-sex-male").prop("checked", "checked");
     else $("#input-sex-female").prop("checked", "checked");
-    var bd = currentXMLMember.getAttribute("birthDate");
-    $("#input-birth-date").val(toLocaleDateString(currentXMLMember.getAttribute("birthDate")));
-    $("#input-death-date").val(toLocaleDateString(currentXMLMember.getAttribute("deathDate")));
+    $("#input-birth-date").val(toLocaleDateString(currentXMLMember.getAttribute("birth-date")));
+    $("#input-death-date").val(toLocaleDateString(currentXMLMember.getAttribute("death-date")));
 }
 
 function toLocaleDateString(isoText) {
@@ -134,8 +133,8 @@ function submit() {
     currentXMLMember.setAttribute("forename", forename);
     currentXMLMember.setAttribute("surname", surname);
     currentXMLMember.setAttribute("sex", sex);
-    currentXMLMember.setAttribute("birthDate", toIsoDateString(birthDate));
-    currentXMLMember.setAttribute("deathDate", toIsoDateString(deathDate));
+    currentXMLMember.setAttribute("birth-date", toIsoDateString(birthDate));
+    currentXMLMember.setAttribute("death-date", toIsoDateString(deathDate));
 
     updateCurrentHTMLMember();
     closeInfobox();
@@ -218,7 +217,7 @@ function fileChanged() {
     reader.readAsText(file, "UTF-8");
 }
 
-function download(e) {
+function download() {
     var xmlText = new XMLSerializer().serializeToString(xml);
     xmlText = xmlText.replace(/\n/g, "\r\n");
     var blob = new Blob([xmlText], {type: "text/xml"});
