@@ -6,11 +6,13 @@ var shown;
 
 function init() {
     var tree = $("#family-tree");
-    tree.scrollLeft(tree.width() / 2);
+    var content = $(tree).first("> .family > .family-member");
+    var dx = (content.width() - tree.width()) / 2;
+    tree.scrollLeft(dx);
 
     request = new XMLHttpRequest();
     request.onreadystatechange = requestOnReadyStateChange;
-    updateXML();
+    getXML();
 
     $("#body").keydown(keylogger);
     $("#infobox-submit").click(submit);
@@ -20,6 +22,12 @@ function init() {
 
     $(".member").click(showInfobox);
     $(".inlaw").click(showInfobox);
+
+    $("#download-button").click(download);
+    $("#upload-button").click(uploadClicked);
+    var inputFile = $("#input-file");
+    inputFile.change(fileChanged);
+    inputFile.hide();
 }
 
 function keylogger(e) {
@@ -30,13 +38,17 @@ function keylogger(e) {
     }
 }
 
-function updateXML() {
+function getXML() {
     request.open("GET", "familytree.xml");
     request.send();
 }
 function requestOnReadyStateChange() {
     if (request.readyState != 4) return;
     xml = request.responseXML;
+    updateAllXMLMembers();
+}
+
+function updateAllXMLMembers() {
     xmlPersons = xml.getElementsByTagName("person");
     xmInlaws = xml.getElementsByTagName("inlaw");
 }
@@ -47,7 +59,7 @@ function showInfobox() {
     shown = true;
     currentHTMLMember = this;
     var pid = $(this).attr("data-pid");
-    updatePerson(pid);
+    updateCurrentXMLMember(pid);
     updateInfobox();
     $("#infobox").show();
 }
@@ -67,7 +79,7 @@ function closeInfobox() {
     $(".infoInput").removeClass("invalid");
 }
 
-function updatePerson(pid) {
+function updateCurrentXMLMember(pid) {
     for (var i = 0; i < xmlPersons.length + xmInlaws.length; i++) {
         var personI = ( i < xmlPersons.length ) ? xmlPersons.item(i) : xmInlaws.item(i - xmlPersons.length);
         if (personI.getAttribute("pid") === pid) {
@@ -95,12 +107,8 @@ function toLocaleDateString(isoText) {
 function toIsoDateString(localeText) {
     if (localeText === "") return localeText;
 
-    var comps = localeText.split(".");
-    var d = parseInt(comps[0], 10);
-    var m = parseInt(comps[1], 10);
-    var y = parseInt(comps[2], 10);
-
-    return new Date(y, m - 1, d).toISOString();
+    var iso = localeText.split(".");
+    return [iso[2], iso[1], iso[0]].join("-");
 }
 
 function submit() {
@@ -115,11 +123,12 @@ function submit() {
     currentXMLMember.setAttribute("forename", forename);
     currentXMLMember.setAttribute("surname", surname);
     currentXMLMember.setAttribute("sex", sex);
+    console.log(birthDate);
     currentXMLMember.setAttribute("birthDate", toIsoDateString(birthDate));
     currentXMLMember.setAttribute("deathDate", toIsoDateString(deathDate));
 
     updateInfobox();
-    updateHTML();
+    updateCurrentHTMLMember();
     closeInfobox();
 }
 
@@ -153,7 +162,7 @@ function validateDate(localeText) {
     return date.getFullYear() == y && date.getMonth() + 1 == m && date.getDate() == d;
 }
 
-function updateHTML() {
+function updateCurrentHTMLMember() {
     var htmlChildren = currentHTMLMember.childNodes;
     for (var i = 0, child; child = htmlChildren.item(i); i++) {
         if (child.classList.contains("display-forename")) child.innerHTML = currentXMLMember.getAttribute("forename");
@@ -161,6 +170,51 @@ function updateHTML() {
     }
 }
 
-function download() {
+function updateAllHTMLMembers() {
+    for (var i = 0; i < xmlPersons.length + xmInlaws.length; i++) {
+        var xmlMember = ( i < xmlPersons.length ) ? xmlPersons.item(i) : xmInlaws.item(i - xmlPersons.length);
+        var pid = xmlMember.getAttribute("pid");
+        var htmlMember = $("#" + pid);
+        console.log(htmlMember.children());
+        var htmlChildren = htmlMember.childNodes;
+        for (var j = 0, child; child = htmlChildren.item(j); j++) {
+            if (child.classList.contains("display-forename")) child.innerHTML = xmlMember.getAttribute("forename");
+            if (child.classList.contains("display-surname")) child.innerHTML = xmlMember.getAttribute("surname");
+        }
+    }
+    currentHTMLMember = undefined;
+}
 
+function uploadClicked() {
+    $("#input-file").trigger("click");
+}
+
+function fileChanged() {
+    console.log("changed");
+    if (this.files.length > 1) {
+        alert("Bitte nur eine Datei auswählen!");
+        return;
+    }
+
+    var file = this.files[0];
+    if (!file) return;
+
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        xml = $.parseXML(e.target.result);
+        updateAllXMLMembers();
+        updateAllHTMLMembers();
+        console.log(e.target.result);
+    };
+    reader.onerror = function () {
+        alert("Keine gültige XML-Datei!");
+    };
+    reader.readAsText(file, "UTF-8");
+}
+
+function download(e) {
+    var xmlText = new XMLSerializer().serializeToString(xml);
+    xmlText = xmlText.replace(/\n/g, "\r\n");
+    var blob = new Blob([xmlText], {type: "text/xml"});
+    saveAs(blob, "familytree.fam")
 }

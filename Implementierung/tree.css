@@ -68,13 +68,11 @@
     border-right: 1px solid black;
     border-radius: 0 5px 0 0;
     -webkit-border-radius: 0 5px 0 0;
-    -moz-border-radius: 0 5px 0 0;
 }
 
 .family-member li:first-child::after {
     border-radius: 5px 0 0 0;
     -webkit-border-radius: 5px 0 0 0;
-    -moz-border-radius: 5px 0 0 0;
 }
 
 .family ul::before {

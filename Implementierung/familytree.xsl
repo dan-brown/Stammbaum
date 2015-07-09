@@ -100,8 +100,9 @@
 
                         <!-- File -->
                         <div id="input-output">
-                            <input type="file"/>
-                            <span id="download-button">Download</span>
+                            <span id="upload-button" class="io-button">Upload</span>
+                            <input id="input-file" type="file" accept=".fam"/>
+                            <span id="download-button" class="io-button">Download</span>
                         </div>
                     </main>
                     <footer>&#169; 2015 Daniel Brown, Micha Piertzik</footer>
