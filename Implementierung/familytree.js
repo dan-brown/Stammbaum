@@ -6,7 +6,7 @@ var shown;
 
 function init() {
     var tree = $("#family-tree");
-    var content = $(tree).first("> .family > .family-member");
+    var content = tree.find("> .family > .family-member");
     var dx = (content.width() - tree.width()) / 2;
     tree.scrollLeft(dx);
 
@@ -96,15 +96,12 @@ function updateInfobox() {
     if (currentXMLMember.getAttribute("sex") === "M") $("#input-sex-male").prop("checked", "checked");
     else $("#input-sex-female").prop("checked", "checked");
     var bd = currentXMLMember.getAttribute("birthDate");
-    console.log(bd);
-    console.log(toLocaleDateString(bd));
     $("#input-birth-date").val(toLocaleDateString(currentXMLMember.getAttribute("birthDate")));
     $("#input-death-date").val(toLocaleDateString(currentXMLMember.getAttribute("deathDate")));
 }
 
 function toLocaleDateString(isoText) {
     if (isoText === "") return isoText;
-    console.log("isotext: "+isoText);
     return new Date(isoText).toLocaleDateString();
 }
 
