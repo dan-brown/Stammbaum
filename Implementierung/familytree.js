@@ -76,7 +76,7 @@ function cancelInfobox() {
 function closeInfobox() {
     shown = false;
     $("#infobox").hide();
-    $(".infoInput").removeClass("invalid");
+    $(".infobox-input").removeClass("invalid");
 }
 
 function updateCurrentXMLMember(pid) {
@@ -95,20 +95,34 @@ function updateInfobox() {
     $("#input-surname").val(currentXMLMember.getAttribute("surname"));
     if (currentXMLMember.getAttribute("sex") === "M") $("#input-sex-male").prop("checked", "checked");
     else $("#input-sex-female").prop("checked", "checked");
+    var bd = currentXMLMember.getAttribute("birthDate");
+    console.log(bd);
+    console.log(toLocaleDateString(bd));
     $("#input-birth-date").val(toLocaleDateString(currentXMLMember.getAttribute("birthDate")));
     $("#input-death-date").val(toLocaleDateString(currentXMLMember.getAttribute("deathDate")));
 }
 
 function toLocaleDateString(isoText) {
     if (isoText === "") return isoText;
-    else return new Date(isoText).toLocaleDateString();
+    console.log("isotext: "+isoText);
+    return new Date(isoText).toLocaleDateString();
 }
 
 function toIsoDateString(localeText) {
     if (localeText === "") return localeText;
 
     var iso = localeText.split(".");
-    return [iso[2], iso[1], iso[0]].join("-");
+    var d = parseInt(iso[0]);
+    var m = parseInt(iso[1]);
+    var y = parseInt(iso[2]);
+
+    if(d < 10) d = "0" + d;
+    if(m < 10) m = "0" + m;
+    if(y < 10) y = "0" + y;
+    if(y < 100) y = "0" + y;
+    if(y < 1000) y = "0" + y;
+
+    return [y,m,d ].join("-");
 }
 
 function submit() {
@@ -123,11 +137,9 @@ function submit() {
     currentXMLMember.setAttribute("forename", forename);
     currentXMLMember.setAttribute("surname", surname);
     currentXMLMember.setAttribute("sex", sex);
-    console.log(birthDate);
     currentXMLMember.setAttribute("birthDate", toIsoDateString(birthDate));
     currentXMLMember.setAttribute("deathDate", toIsoDateString(deathDate));
 
-    updateInfobox();
     updateCurrentHTMLMember();
     closeInfobox();
 }
@@ -175,7 +187,6 @@ function updateAllHTMLMembers() {
         var xmlMember = ( i < xmlPersons.length ) ? xmlPersons.item(i) : xmInlaws.item(i - xmlPersons.length);
         var pid = xmlMember.getAttribute("pid");
         var htmlMember = $("#" + pid);
-        console.log(htmlMember.children());
         var htmlChildren = htmlMember.childNodes;
         for (var j = 0, child; child = htmlChildren.item(j); j++) {
             if (child.classList.contains("display-forename")) child.innerHTML = xmlMember.getAttribute("forename");
@@ -190,9 +201,8 @@ function uploadClicked() {
 }
 
 function fileChanged() {
-    console.log("changed");
     if (this.files.length > 1) {
-        alert("Bitte nur eine Datei auswählen!");
+        alert("Bitte nur eine Datei auswï¿½hlen!");
         return;
     }
 
@@ -204,10 +214,9 @@ function fileChanged() {
         xml = $.parseXML(e.target.result);
         updateAllXMLMembers();
         updateAllHTMLMembers();
-        console.log(e.target.result);
     };
     reader.onerror = function () {
-        alert("Keine gültige XML-Datei!");
+        alert("Keine gï¿½ltige XML-Datei!");
     };
     reader.readAsText(file, "UTF-8");
 }

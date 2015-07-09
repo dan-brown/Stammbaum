@@ -216,6 +216,6 @@ pip-log.txt
 #############
 ## IntelliJ
 #############
-.idea/
+.idea
 .out
 *.iml
