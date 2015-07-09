@@ -6,13 +6,13 @@
         <html>
             <head>
                 <title>Stammbaum</title>
-                <link type="text/css" rel="stylesheet" href="familytree.css"/>
-                <link type="text/css" rel="stylesheet" href="tree.css"/>
-                <link type="text/css" rel="stylesheet" href="infobox.css"/>
+                <link type="text/css" rel="stylesheet" href="inc/main.css"/>
+                <link type="text/css" rel="stylesheet" href="inc/familytree.css"/>
+                <link type="text/css" rel="stylesheet" href="inc/infobox.css"/>
                 <link type="image/png" rel="icon" href="media/img/favicon.png"/>
-                <script src="jquery.js"/>
-                <script src="filesaver.js"/>
-                <script src="familytree.js"/>
+                <script src="inc/jquery.js"/>
+                <script src="inc/filesaver.js"/>
+                <script src="inc/familytree.js"/>
             </head>
             <body>
                 <!-- infobox -->
@@ -66,8 +66,8 @@
 
                     <!-- Header -->
                     <header>
-                        <a href="index.html">
-                            <img id="logoSmall" src="media/img/FamilytreeSmall.png" width="200"
+                        <a href="intro.html">
+                            <img id="logoSmall" src="media/img/familytree_small.png" width="200"
                                  alt="das Logo mit einem Baum und einer kleinen Familie"/>
                         </a>
                     </header>
@@ -76,13 +76,13 @@
                     <nav>
                         <ul id="menu">
                             <li class="menu-item">
-                                <a class="menu-link" href="home.html">Home</a>
+                                <a class="menu-link" href="index.html">Home</a>
                             </li>
                             <li class="menu-item">
-                                <a id="menu-link-current" href="familytree.xml">Der Stammbaum</a>
+                                <a id="menu-link-current" href="#">Der Stammbaum</a>
                             </li>
                             <li class="menu-item">
-                                <a class="menu-link" href="imprint.html">Impressum</a>
+                                <a class="menu-link" href="impressum.html">Impressum</a>
                             </li>
                         </ul>
                     </nav>

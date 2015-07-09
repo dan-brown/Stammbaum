@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
-<?xml-stylesheet type="text/xsl" href="familytree.xsl"?>
-<!DOCTYPE familytree SYSTEM "familytree.dtd">
+<?xml-stylesheet type="text/xsl" href="inc/familytree.xsl"?>
+<!DOCTYPE familytree SYSTEM "inc/familytree.dtd">
 <familytree>
     <person pid="p0" forename="Abraham J." surname="Simpson" sex="M" birthDate="20.10.2015" deathDate="21.10.2015">
         <person pid="p1" forename="???" surname="" sex="F" birthDate="" deathDate="">

@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
-<?xml-stylesheet type="text/xsl" href="familytree.xsl"?>
-<!DOCTYPE familytree SYSTEM "familytree.dtd">
+<?xml-stylesheet type="text/xsl" href="inc/familytree.xsl"?>
+<!DOCTYPE familytree SYSTEM "inc/familytree.dtd">
 <familytree>
     <person birthDate="1742-01-01" pid="p16" forename="Grandpa" sex="M" deathDate="1795-03-30" surname="Patternman">
         <inlaw birthDate="1745-02-03" pid="p15" forename="Grandma" sex="F" deathDate="1795-03-30" surname="Patternman"/>
