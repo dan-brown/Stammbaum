@@ -66,7 +66,7 @@
 
                     <!-- Header -->
                     <header>
-                        <a href="intro.html">
+                        <a id="logo-link" href="intro.html">
                             <img id="logoSmall" src="media/img/familytree_small.png" width="200"
                                  alt="das Logo mit einem Baum und einer kleinen Familie"/>
                         </a>

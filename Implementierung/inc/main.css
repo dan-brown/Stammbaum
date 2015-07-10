@@ -1,6 +1,4 @@
-html {
-    overflow-y: scroll;
-}
+
 
 html, body {
     height: 100%;
@@ -44,7 +42,6 @@ p {
 }
 
 #index-logo {
-    display: block;
     width: 55%;
     margin-left: auto;
     margin-right: auto;
@@ -61,8 +58,10 @@ p {
     padding-bottom: 25pt;
 }
 
-#logo-small {
-    margin-left: 50pt;
+#logo-link 
+{
+    display:inline-block;
+    padding-left: 30pt;    
 }
 
 #menu {
