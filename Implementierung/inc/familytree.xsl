@@ -100,8 +100,6 @@
 
                         <!-- File -->
                         <div id="input-output">
-                            <span id="upload-button" class="io-button">Upload</span>
-                            <input id="input-file" type="file" accept=".fam"/>
                             <span id="download-button" class="io-button">Download</span>
                         </div>
                     </main>

@@ -25,9 +25,6 @@ function init() {
 
     $("#download-button").click(download);
     $("#upload-button").click(uploadClicked);
-    var inputFile = $("#input-file");
-    inputFile.change(fileChanged);
-    inputFile.hide();
 }
 
 function keylogger(e) {
@@ -176,45 +173,6 @@ function updateCurrentHTMLMember() {
         if (child.classList.contains("display-forename")) child.innerHTML = currentXMLMember.getAttribute("forename");
         if (child.classList.contains("display-surname")) child.innerHTML = currentXMLMember.getAttribute("surname");
     }
-}
-
-function updateAllHTMLMembers() {
-    for (var i = 0; i < xmlPersons.length + xmInlaws.length; i++) {
-        var xmlMember = ( i < xmlPersons.length ) ? xmlPersons.item(i) : xmInlaws.item(i - xmlPersons.length);
-        var pid = xmlMember.getAttribute("pid");
-        var htmlMember = $("#" + pid);
-        var htmlChildren = htmlMember.childNodes;
-        for (var j = 0, child; child = htmlChildren.item(j); j++) {
-            if (child.classList.contains("display-forename")) child.innerHTML = xmlMember.getAttribute("forename");
-            if (child.classList.contains("display-surname")) child.innerHTML = xmlMember.getAttribute("surname");
-        }
-    }
-    currentHTMLMember = undefined;
-}
-
-function uploadClicked() {
-    $("#input-file").trigger("click");
-}
-
-function fileChanged() {
-    if (this.files.length > 1) {
-        alert("Bitte nur eine Datei ausw�hlen!");
-        return;
-    }
-
-    var file = this.files[0];
-    if (!file) return;
-
-    var reader = new FileReader();
-    reader.onload = function (e) {
-        xml = $.parseXML(e.target.result);
-        updateAllXMLMembers();
-        updateAllHTMLMembers();
-    };
-    reader.onerror = function () {
-        alert("Keine g�ltige XML-Datei!");
-    };
-    reader.readAsText(file, "UTF-8");
 }
 
 function download() {
